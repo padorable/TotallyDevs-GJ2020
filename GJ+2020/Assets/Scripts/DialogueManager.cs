@@ -39,6 +39,6 @@ public class DialogueManager : MonoBehaviour
     {
         this.transform.GetChild(0).gameObject.SetActive(false);
         this.transform.GetChild(1).gameObject.SetActive(true);
-        this.transform.GetChild(1).GetComponent<ChoicesDialogue>().SetChoices(type, DataHandler.GetChoicesLevel(type));
+        this.transform.GetChild(1).GetComponent<ChoicesDialogue>().SetChoices(type);
     }
 }

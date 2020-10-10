@@ -20,6 +20,8 @@ public class StatHandler : MonoBehaviour
         {
             handlers.Add(handler);
         }
+
+        TransitionManager.instance.AfterTransition.AddListener(RefreshBarSlow);
     }
 
     private void Start()
@@ -42,6 +44,7 @@ public class StatHandler : MonoBehaviour
         toChange.SetBar(percent);
     }
 
+
     public void SetStat(Stat stat)
     {
         CurrentStatToChange = stat;
@@ -51,6 +54,14 @@ public class StatHandler : MonoBehaviour
     public void RefreshBars()
     {
         foreach(BarHandler h in handlers)
+        {
+            h.SetBarFast(DataHandler.GetPercent(h.CurrentStat));
+        }
+    }
+
+    public void RefreshBarSlow()
+    {
+        foreach (BarHandler h in handlers)
         {
             h.SetBar(DataHandler.GetPercent(h.CurrentStat));
         }

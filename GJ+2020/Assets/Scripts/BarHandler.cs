@@ -34,6 +34,7 @@ public class BarHandler : MonoBehaviour
     {
         elapsedTime = 0;
         float initialPercent = bar.fillAmount;
+
         while(elapsedTime < duration)
         {
             elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, duration);
@@ -57,6 +58,14 @@ public class BarHandler : MonoBehaviour
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         currentCoroutine = StartCoroutine(moveBar(bar, percent));
+    }
+
+    public void SetBarFast(float percent)
+    {
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        barAssist.fillAmount = percent;
+        bar.fillAmount = percent;
     }
 
     public void ReturnAssistBar()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class DataHandler 
 {
-    public static float Mood = 0,Social = 0,Fitness = 0,Nourishment = 0, Money = 0;
+    public static float Mood = 0,Social = 0,Fitness = 0,Nourishment = 0, Money = 0, MoodBonus = 0,SocialBonus = 0, FitnessBonus = 0, NourishmentBonus = 0;
 
     public static List<Relationship> Relationships;
 
@@ -31,11 +31,6 @@ public static class DataHandler
         Relationships.Find((x) => x.Name == name).LevelUp();
     }
 
-    public static void LevelDownRelationship(string name)
-    {
-        Relationships.Find((x) => x.Name == name).LevelDown();
-    }
-
     public static void AddStat(Stat type, float toAdd)
     {
         switch (type)
@@ -58,57 +53,27 @@ public static class DataHandler
         }
     }
 
-    public static int MoodChoices = 0, SocialChoices = 0, FitnessChoices = 0, NourishmentChoices = 0;
-
-    public static void LevelUpChoices(Stat type)
+    public static void SetBonusStat(Stat type, float value)
     {
         switch (type)
         {
-            case Stat.Fitness: FitnessChoices++; break;
-            case Stat.Mood: MoodChoices++; break;
-            case Stat.Nourishment: NourishmentChoices++; break;
-            case Stat.Social: SocialChoices++; break;
+            case Stat.Fitness: FitnessBonus = value; break;
+            case Stat.Mood: MoodBonus = value; break;
+            case Stat.Nourishment: NourishmentBonus = value; break;
+            case Stat.Social: SocialBonus = value; break;
         }
     }
 
-    public static int GetChoicesLevel(Stat type)
+    public static float GetBonus(Stat type)
     {
         switch (type)
         {
-            case Stat.Fitness: return FitnessChoices;
-            case Stat.Mood: return MoodChoices;
-            case Stat.Nourishment: return NourishmentChoices;
-            case Stat.Social: return SocialChoices++;
+            case Stat.Fitness: return FitnessBonus;
+            case Stat.Mood: return MoodBonus;
+            case Stat.Nourishment: return NourishmentBonus;
+            case Stat.Social: return SocialBonus;
 
             default: return 0;
-        }
-    }
-}
-
-public class Relationship
-{
-    public string Name;
-    public int Level = 0;
-    public int MaxLevelReached = 0;
-
-    public bool LevelUp()
-    {
-        if (Level == 3) return false;
-        else
-        {
-            Level++;
-            if (MaxLevelReached < Level) MaxLevelReached = Level;
-            return true;
-        }
-    }
-
-    public bool LevelDown()
-    {
-        if (Level == 0) return false;
-        else
-        {
-            Level -= 1;
-            return true;
         }
     }
 }

@@ -14,15 +14,25 @@ public class ChoicesDialogue : MonoBehaviour
             Choices.Add(this.transform.GetChild(i).gameObject);
     }
 
-    public void SetChoices(Stat type, int count)
+    public void SetChoices(Stat type)
     {
         StatHandler.instance.SetStat(type);
 
         float current = DataHandler.GetPercent(type);
-        for(int i = 0; i <= count; i++)
+
+        for(int i = 0; i < 3; i++)
         {
+            ChoicesValue c = GameManager.instance.Data.GetDataValue(type).Choices[i];
+            if (!c.IsUnlocked)
+            {
+                Choices[i].SetActive(false);
+                continue;
+            }
+            Choices[i].GetComponent<Text>().text = c.ChoiceText + " (Cost: " + c.APCost + ")";
+            if (GameManager.instance.ActionPoints < c.APCost) return;
+
             Choices[i].SetActive(true);
-            float toAdd = GameManager.instance.Data.GetDataValue(type).MeterFill[i];
+            float toAdd = GameManager.instance.Data.GetDataValue(type).Choices[i].MeterFill;
             EventTrigger e = Choices[i].GetComponent<EventTrigger>();
             e.triggers.Clear();
 
@@ -47,12 +57,7 @@ public class ChoicesDialogue : MonoBehaviour
 
             Button b = Choices[i].GetComponent<Button>();
             b.onClick.RemoveAllListeners();
-            b.onClick.AddListener(() => { StatHandler.instance.SetBar(current + toAdd); SetChoices(type, count); });
-        }
-
-        for(int i = count + 1; i < Choices.Count; i++)
-        {
-            Choices[i].SetActive(false);
+            b.onClick.AddListener(() => { StatHandler.instance.SetBar(current + toAdd); SetChoices(type); });
         }
     }
 }

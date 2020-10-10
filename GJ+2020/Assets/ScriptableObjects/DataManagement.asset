@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11dc4fbad6fade64881fc28fc871fd1e, type: 3}
+  m_Name: DataManagement
+  m_EditorClassIdentifier: 
+  StartingMoney: 2000
+  Data:
+  - stat: 0
+    InitialValue: 0.5
+    Choices:
+    - IsUnlocked: 1
+      APCost: 0
+      MeterFill: 0.2
+      ChoiceText: 
+    - IsUnlocked: 0
+      APCost: 0
+      MeterFill: 0.3
+      ChoiceText: 
+    - IsUnlocked: 0
+      APCost: 0
+      MeterFill: 0.4
+      ChoiceText: 
+  - stat: 1
+    InitialValue: 0.5
+    Choices:
+    - IsUnlocked: 1
+      APCost: 0
+      MeterFill: 0.2
+      ChoiceText: Watch Something
+    - IsUnlocked: 0
+      APCost: 0
+      MeterFill: 0.3
+      ChoiceText: Play Video Games
+    - IsUnlocked: 0
+      APCost: 0
+      MeterFill: 0.4
+      ChoiceText: Play with Pet
+  - stat: 2
+    InitialValue: 0.5
+    Choices:
+    - IsUnlocked: 1
+      APCost: 1
+      MeterFill: 0.2
+      ChoiceText: Exercise on your own
+    - IsUnlocked: 0
+      APCost: 1
+      MeterFill: 0.3
+      ChoiceText: Exercising with Online Trainer
+    - IsUnlocked: 0
+      APCost: 2
+      MeterFill: 0.4
+      ChoiceText: Exercising with Home Set-Up
+  - stat: 3
+    InitialValue: 0.5
+    Choices:
+    - IsUnlocked: 1
+      APCost: 0
+      MeterFill: 0.1
+      ChoiceText: 
+    - IsUnlocked: 0
+      APCost: 0
+      MeterFill: 0.2
+      ChoiceText: 
+    - IsUnlocked: 0
+      APCost: 0
+      MeterFill: 0.3
+      ChoiceText: 
+  Relationships:
+  - Name: Friend
+    Level: 0
+    IsOnline: 1
+    MaxLevelReached: 0
+    Unlock:
+    - stat: 0
+      LevelToUnlock: 0
+    - stat: 0
+      LevelToUnlock: 0
+    - stat: 0
+      LevelToUnlock: 0
+  - Name: Parent
+    Level: 0
+    IsOnline: 1
+    MaxLevelReached: 0
+    Unlock:
+    - stat: 0
+      LevelToUnlock: 0
+    - stat: 0
+      LevelToUnlock: 0
+    - stat: 0
+      LevelToUnlock: 0
+  - Name: Sibling
+    Level: 0
+    IsOnline: 1
+    MaxLevelReached: 0
+    Unlock:
+    - stat: 0
+      LevelToUnlock: 0
+    - stat: 0
+      LevelToUnlock: 0
+    - stat: 0
+      LevelToUnlock: 0
