@@ -75,5 +75,7 @@ public class GameManager : MonoBehaviour
         DataHandler.Fitness = Mathf.Max(0, DataHandler.Fitness - .2f + DataHandler.FitnessBonus);
 
         WeekNumber++;
+        ActionPoints = 3;
+        DataHandler.Money += 750 * (float)Mathf.FloorToInt(WeekNumber / 4);
     }
 }

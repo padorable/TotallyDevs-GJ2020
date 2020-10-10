@@ -29,7 +29,13 @@ public class ChoicesDialogue : MonoBehaviour
                 continue;
             }
             Choices[i].GetComponent<Text>().text = c.ChoiceText + " (Cost: " + c.APCost + ")";
-            if (GameManager.instance.ActionPoints < c.APCost) return;
+            if (GameManager.instance.ActionPoints < c.APCost)
+            {
+                Choices[i].GetComponent<Button>().interactable = false;
+                Choices[i].GetComponent<EventTrigger>().triggers.Clear();
+                Choices[i].GetComponent<Button>().onClick.RemoveAllListeners();
+                return;
+            }
 
             Choices[i].SetActive(true);
             float toAdd = GameManager.instance.Data.GetDataValue(type).Choices[i].MeterFill;
@@ -56,8 +62,9 @@ public class ChoicesDialogue : MonoBehaviour
             e.triggers.Add(entry);
 
             Button b = Choices[i].GetComponent<Button>();
+            b.interactable = true;
             b.onClick.RemoveAllListeners();
-            b.onClick.AddListener(() => { StatHandler.instance.SetBar(current + toAdd); SetChoices(type); });
+            b.onClick.AddListener(() => { StatHandler.instance.SetBar(current + toAdd); SetChoices(type); GameManager.instance.ActionPoints -= c.APCost;Debug.Log(GameManager.instance.ActionPoints); });
         }
     }
 }

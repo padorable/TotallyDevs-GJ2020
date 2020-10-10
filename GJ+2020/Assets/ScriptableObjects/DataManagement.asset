@@ -15,7 +15,7 @@ MonoBehaviour:
   StartingMoney: 2000
   Data:
   - stat: 0
-    InitialValue: 0.5
+    InitialValue: 0.8
     Choices:
     - IsUnlocked: 1
       APCost: 0
@@ -30,50 +30,50 @@ MonoBehaviour:
       MeterFill: 0.4
       ChoiceText: 
   - stat: 1
-    InitialValue: 0.5
-    Choices:
-    - IsUnlocked: 1
-      APCost: 0
-      MeterFill: 0.2
-      ChoiceText: Watch Something
-    - IsUnlocked: 0
-      APCost: 0
-      MeterFill: 0.3
-      ChoiceText: Play Video Games
-    - IsUnlocked: 0
-      APCost: 0
-      MeterFill: 0.4
-      ChoiceText: Play with Pet
-  - stat: 2
-    InitialValue: 0.5
+    InitialValue: 0.8
     Choices:
     - IsUnlocked: 1
       APCost: 1
-      MeterFill: 0.2
+      MeterFill: 0.15
+      ChoiceText: Watch Something
+    - IsUnlocked: 0
+      APCost: 1
+      MeterFill: 0.25
+      ChoiceText: Play Video Games
+    - IsUnlocked: 0
+      APCost: 2
+      MeterFill: 0.6
+      ChoiceText: Play with Pet
+  - stat: 2
+    InitialValue: 0.8
+    Choices:
+    - IsUnlocked: 1
+      APCost: 1
+      MeterFill: 0.15
       ChoiceText: Exercise on your own
     - IsUnlocked: 0
       APCost: 1
-      MeterFill: 0.3
+      MeterFill: 0.25
       ChoiceText: Exercising with Online Trainer
     - IsUnlocked: 0
       APCost: 2
-      MeterFill: 0.4
+      MeterFill: 0.6
       ChoiceText: Exercising with Home Set-Up
   - stat: 3
-    InitialValue: 0.5
+    InitialValue: 0.8
     Choices:
     - IsUnlocked: 1
-      APCost: 0
-      MeterFill: 0.1
-      ChoiceText: 
+      APCost: 1
+      MeterFill: 0.15
+      ChoiceText: Ramen
     - IsUnlocked: 0
-      APCost: 0
-      MeterFill: 0.2
-      ChoiceText: 
+      APCost: 1
+      MeterFill: 0.25
+      ChoiceText: Bacon/Egg + Seasonings
     - IsUnlocked: 0
-      APCost: 0
-      MeterFill: 0.3
-      ChoiceText: 
+      APCost: 2
+      MeterFill: 0.6
+      ChoiceText: Bento/Chicke + Seasonings
   Relationships:
   - Name: Friend
     Level: 0
