@@ -87,7 +87,7 @@ MonoBehaviour:
       ChoiceText: Bento/Chicke + Seasonings
       Amount: 0
   Relationships:
-  - Name: Friend
+  - Name: Clove
     Level: 0
     IsOnline: 1
     LastWeekTalkedTo: -2
@@ -99,7 +99,7 @@ MonoBehaviour:
       LevelToUnlock: 2
     - stat: 2
       LevelToUnlock: 3
-  - Name: Parent
+  - Name: Sam_Mom
     Level: 0
     IsOnline: 1
     LastWeekTalkedTo: -2
@@ -111,7 +111,7 @@ MonoBehaviour:
       LevelToUnlock: 2
     - stat: 3
       LevelToUnlock: 3
-  - Name: Sibling
+  - Name: Britney
     Level: 0
     IsOnline: 1
     LastWeekTalkedTo: -2
