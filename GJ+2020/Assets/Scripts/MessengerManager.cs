@@ -48,21 +48,26 @@ public class MessengerManager : MonoBehaviour
         ChatBoxHeart.SetActive(false);
     }
 
-    public void ShowMessagesAndChat(MessageChat chat)
+    public void ShowMessagesAndChat(MessageChat chat, int cost)
     {
         Viewport.offsetMin = new Vector2(4, 58);
         ChatBox.SetActive(true);
         CurrentMessaging = chat;
         SetMessageBoxes();
-
         ChatBoxHeart.SetActive(true);
+        updateHearts(DataHandler.GetRelationshipLevel(chat.Name));
+        ConfirmWindow.Cost = cost;
+    }
 
+    private void updateHearts(int amount)
+    {
+ 
         for (int i = 0; i < 3; i++)
         {
             ChatBoxHeart.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
 
-        for (int i = 0; i < Mathf.Clamp(DataHandler.GetRelationshipLevel(chat.Name),0,3) ; i++)
+        for (int i = 0; i < Mathf.Clamp(amount, 0, 3); i++)
         {
             ChatBoxHeart.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
         }
@@ -75,6 +80,7 @@ public class MessengerManager : MonoBehaviour
         CurrentMessaging = chat;
         SetMessageBoxes();
         ChatBoxHeart.SetActive(true);
+        updateHearts(DataHandler.GetRelationshipLevel(chat.Name));
     }
 
     private void SetMessageBoxes()

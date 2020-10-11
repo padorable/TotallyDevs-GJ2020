@@ -78,4 +78,18 @@ public class GameManager : MonoBehaviour
         ActionPoints = 3;
         DataHandler.Money += 750 * (float)Mathf.FloorToInt(WeekNumber / 4);
     }
+
+    public string Month(int week, bool shortcut)
+    {
+        string s = "";
+        switch (Mathf.FloorToInt(week / 4))
+        {
+            case 0: s = "October"; break;
+            case 1: s = "November"; break;
+            case 2: s = "December"; break;
+
+            default: s = "December"; break;
+        }
+        return shortcut ? s.Substring(0,3) : s;
+    }
 }

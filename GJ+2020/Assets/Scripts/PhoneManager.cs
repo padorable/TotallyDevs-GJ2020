@@ -42,6 +42,11 @@ public class PhoneManager : MonoBehaviour
             LockPhone();
     }
 
+    private void Start()
+    {
+        GameManager.instance.NewWeek.AddListener(LockPhone);
+    }
+
     public void ShowNextScreen(GameObject obj)
     {
         if (wait) return;
