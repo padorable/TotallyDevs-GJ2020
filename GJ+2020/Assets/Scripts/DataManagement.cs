@@ -29,6 +29,7 @@ public class Relationship
     public string Name;
     public int Level = 0;
     public bool IsOnline = true;
+    public int LastWeekTalkedTo = -2;
     [HideInInspector] public int MaxLevelReached = 0;
 
     public List<ToUnlock> Unlock = new List<ToUnlock>();

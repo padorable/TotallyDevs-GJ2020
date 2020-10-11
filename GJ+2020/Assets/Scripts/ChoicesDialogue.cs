@@ -64,7 +64,13 @@ public class ChoicesDialogue : MonoBehaviour
             Button b = Choices[i].GetComponent<Button>();
             b.interactable = true;
             b.onClick.RemoveAllListeners();
-            b.onClick.AddListener(() => { StatHandler.instance.SetBar(current + toAdd); SetChoices(type); GameManager.instance.ActionPoints -= c.APCost;Debug.Log(GameManager.instance.ActionPoints); });
+            b.onClick.AddListener(() => {
+                StatHandler.instance.SetBar(current + toAdd);
+                SetChoices(type);
+                GameManager.instance.ActionPoints -= c.APCost;
+                Debug.Log(GameManager.instance.ActionPoints);
+                DialogueManager.instance.SetDialogue("...");
+            });
         }
     }
 }

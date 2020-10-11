@@ -20,14 +20,15 @@ public class StatHandler : MonoBehaviour
         {
             handlers.Add(handler);
         }
-
-        TransitionManager.instance.AfterTransition.AddListener(RefreshBarSlow);
     }
 
     private void Start()
     {
         RefreshBars();
+
+        TransitionManager.instance.AfterTransition.AddListener(RefreshBarSlow);
     }
+
     public void SetAssistBar(float percent)
     {
         toChange.SetAssistBar(percent);
