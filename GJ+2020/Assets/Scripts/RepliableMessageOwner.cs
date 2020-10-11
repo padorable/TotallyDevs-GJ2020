@@ -34,7 +34,8 @@ public class RepliableMessageOwner : MessageOwner
             MessengerManager.instance.ShowMessagesAndHeartOnly(PreviousChat);
 
 
-        MessengerManager.instance.OnUpdateMessages = new UpdateMessages();
+        if (MessengerManager.instance.OnUpdateMessages == null)
+            MessengerManager.instance.OnUpdateMessages = new UpdateMessages();
 
         MessengerManager.instance.OnUpdateMessages.AddListener((x) =>
         {
@@ -49,8 +50,6 @@ public class RepliableMessageOwner : MessageOwner
             };
             GameManager.instance.ActionPoints -= cost;
             GameManager.instance.NewWeek.AddListener(action);
-            StatHandler.instance.SetStat(Stat.Social);
-            StatHandler.instance.SetBar(DataHandler.Social + .2f);
             GameManager.instance.NewWeek.AddListener(() => GameManager.instance.NewWeek.RemoveListener(action));
         });
     }

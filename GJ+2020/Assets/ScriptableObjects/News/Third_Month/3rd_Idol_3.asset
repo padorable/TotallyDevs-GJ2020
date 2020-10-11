@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94fa8ad336459242905e4ac1be8c7a2, type: 3}
   m_Name: 3rd_Idol_3
   m_EditorClassIdentifier: 
-  NewsTitle: 
-  ActualNews: 
+  NewsTitle: Lil Witch Geraldine - Happy Holidays
+  ActualNews: 'Hey loves,
+
+
+    I''ll keep it short.
+
+
+    HAPPY HOLIDAYS!
+
+
+    Sending
+    love to you and your loved ones!'

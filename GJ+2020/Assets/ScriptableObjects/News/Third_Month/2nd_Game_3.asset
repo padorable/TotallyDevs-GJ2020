@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94fa8ad336459242905e4ac1be8c7a2, type: 3}
   m_Name: 2nd_Game_3
   m_EditorClassIdentifier: 
-  NewsTitle: 
-  ActualNews: 
+  NewsTitle: Bobally Spies! - Holiday Event
+  ActualNews: 'Christmas Carolling in the Deep, the latest Bobally Spies! Event,
+    is available on December 22!
+
+
+    Gather round your friends and earn tokens
+    to unlock special costumes, such as the Reindeer Romper, and Elf Extraordinaire!
+
+
+    See
+    you then!'

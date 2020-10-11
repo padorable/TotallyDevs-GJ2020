@@ -12,5 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94fa8ad336459242905e4ac1be8c7a2, type: 3}
   m_Name: 4th_Boba_3
   m_EditorClassIdentifier: 
-  NewsTitle: 
-  ActualNews: 
+  NewsTitle: 'BAA: Thai milk tea'
+  ActualNews: 'Bobaholics Addicts Anonymous:
+
+
+    Today''s special is thai milk
+    tea!
+
+
+    "Not interested." - Cloud
+
+
+    "Whatever." - Squall
+
+
+    "My absolute
+    favorite. I just love the feel of this type. I want more and more!" - Selphie'

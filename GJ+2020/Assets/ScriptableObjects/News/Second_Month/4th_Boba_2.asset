@@ -12,5 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94fa8ad336459242905e4ac1be8c7a2, type: 3}
   m_Name: 4th_Boba_2
   m_EditorClassIdentifier: 
-  NewsTitle: 
-  ActualNews: 
+  NewsTitle: 'BAA Feature: Chocolate Overload'
+  ActualNews: 'Boba Addicts Anonymous - November
+
+
+    Today''s Topic: Chocolate
+    overload!
+
+
+    Thoughts?
+
+
+    "Too much. It''s like a void." - Mandy
+
+
+    "I''m
+    allergic to chocolate. *sniff* - Frank
+
+
+    "I love chocolate. Never can get
+    enough!!" - Senel
+
+
+    Next month, holidays are coming. Stay tuned! '

@@ -64,7 +64,6 @@ public class ChoicesValue
     public int APCost;
     public float MeterFill;
     public string ChoiceText;
-    public int Amount = 0;
 }
 
 [System.Serializable]

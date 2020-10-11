@@ -6,7 +6,6 @@ using UnityEngine;
 public class DiaryEntry : ScriptableObject
 {
     public List<Entry> Entries;
-    public bool IsDoneReading = false;
 }
 
 [System.Serializable]
