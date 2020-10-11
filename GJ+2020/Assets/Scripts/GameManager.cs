@@ -67,6 +67,26 @@ public class GameManager : MonoBehaviour
         //DataHandler.Relationships = relationships;
     }
 
+    private void Start()
+    {
+        NewWeek.AddListener(() =>
+        {
+            float p = Outcome();
+            if(p < .3f)
+            {
+                //bad outcome
+            }
+            else if (p < .5f)
+            {
+                // okay outcome
+            }
+            else
+            {
+                //Good outcome
+            }
+        });
+    }
+
     public void NextWeek()
     {
         DataHandler.Mood = Mathf.Max(0, DataHandler.Mood - .2f + DataHandler.MoodBonus);
@@ -91,5 +111,21 @@ public class GameManager : MonoBehaviour
             default: s = "December"; break;
         }
         return shortcut ? s.Substring(0,3) : s;
+    }
+
+    public float Outcome()
+    {
+        int total = 0;
+        int unlocked = 0;
+        foreach(DataValues a in Data.Data)
+        {
+            foreach(ChoicesValue b in a.Choices)
+            {
+                total++;
+                if (b.IsUnlocked) unlocked++;
+            }
+        }
+        return (float)unlocked / (float)total;
+
     }
 }
