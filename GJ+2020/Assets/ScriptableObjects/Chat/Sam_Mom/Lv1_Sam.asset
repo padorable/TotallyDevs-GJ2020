@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv1_Sam
+  m_EditorClassIdentifier: 
+  Name: Sam
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 1
+    Message: hey momster. what' s up?
+    Length: 1
+  - isMe: 0
+    Message: Oh sweetie, it's nice to hear from you.
+    Length: 1
+  - isMe: 0
+    Message: Uncle Gerry and I are discussing buying plants online. They're having
+      a sale in that shop app for one kind. Maybe it'd be good to cop one?
+    Length: 5
+  - isMe: 1
+    Message: oh yeah? i'll surely check it out, it's musty here
+    Length: 2
+  - isMe: 0
+    Message: Do tell me when you have. Always take care dear. Gotta go for now. Eat
+      right!
+    Length: 4
+  - isMe: 1
+    Message: thanks mom. love you
+    Length: 1

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c51f546f13f6d4458c50adea5fd76da, type: 3}
+  m_Name: GoodEnd_Diary
+  m_EditorClassIdentifier: 
+  Entries:
+  - EntryText: 'Christmas with family was surprisingly good. '
+    Length: 1
+  - EntryText: "I\u2019m glad I got to \u201Cspend\u201D it with them, despite just
+      streaming our eating and singing together."
+    Length: 2
+  - EntryText: "Clove and I exchanged presents, too. Just thankful it\u2019s not
+      another fitness thing -- it\u2019s a rare, vinyl of our favorite artist."
+    Length: 3
+  - EntryText: "If only Christmas wouldn\u2019t end\u2026"
+    Length: 1
+  - EntryText: 'Apparently, in the coming year, things would be back to normal. '
+    Length: 1
+  - EntryText: 'Vaccines will be available, and we can live free from the fear of
+      BeeVID-19. '
+    Length: 2
+  - EntryText: "I think I\u2019ll actually miss this time. "
+    Length: 1
+  - EntryText: I got to talk to Brit more and actually try her hobbies. Reminds me
+      of our younger years.
+    Length: 2
+  - EntryText: Mom was telling me about how proud she was that I could cook now.
+      Maybe we could cook together back home?
+    Length: 3
+  - EntryText: "Can\u2019t believe how spruced up this place now is."
+    Length: 1
+  - EntryText: "Also canNOT believe I\u2019ve been cooking for myself, exercising,
+      actually getting into hobbies."
+    Length: 2
+  - EntryText: Who knew surrounding yourself with things you love would really lift
+      you up?
+    Length: 2
+  - EntryText: Who knew?
+    Length: 1
+  - EntryText: Definitely not me.
+    Length: 1
+  - EntryText: "Self-care, self-love\u2026 mindfully and consistently connecting
+      to oneself is vital. It makes us *live*."
+    Length: 2
+  - EntryText: "But who had the time before? We had daily grinds. Our minds were
+      full of to dos and our bodies weary. It wasn\u2019t just me -- but all of us\u2026"
+    Length: 3
+  - EntryText: "I\u2019m glad to have had the time to connect. I hope, in these most
+      isolating of times, I touched others too as they have touched me."
+    Length: 3

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv3_Clove
+  m_EditorClassIdentifier: 
+  Name: Clove
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 1
+    Message: hey bestie
+    Length: 1
+  - isMe: 0
+    Message: HEY bestieeeeeeeeeee :********
+    Length: 2
+  - isMe: 0
+    Message: whats up hot stuff
+    Length: 1
+  - isMe: 1
+    Message: lifting really tires me out D:<
+    Length: 1
+  - isMe: 0
+    Message: hmmmm
+    Length: 1
+  - isMe: 0
+    Message: hMMMMM
+    Length: 1
+  - isMe: 0
+    Message: thinking cap on
+    Length: 1
+  - isMe: 1
+    Message: you ever done yoga? just saw a listing on shop for stuff. kinda munnylicious
+      tho
+    Length: 3
+  - isMe: 0
+    Message: that's how i became flexible in high school!! why not! we can totes
+      share tipes
+    Length: 3
+  - isMe: 1
+    Message: just hoping i don't tear my muscles tbh
+    Length: 2
+  - isMe: 0
+    Message: you'll be fine!!! i'm your fitness bff <3 <3 have a good intro vid series
+      for ya
+    Length: 3
+  - isMe: 1
+    Message: oh okaaaay. promise to send sauce?
+    Length: 2
+  - isMe: 0
+    Message: totally!! ;)
+    Length: 1

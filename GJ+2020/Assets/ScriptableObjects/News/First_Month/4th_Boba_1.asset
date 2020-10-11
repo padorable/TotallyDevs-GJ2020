@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94fa8ad336459242905e4ac1be8c7a2, type: 3}
+  m_Name: 4th_Boba_1
+  m_EditorClassIdentifier: 
+  NewsTitle: 'BAA Feature: Pumpkin Spice!'
+  ActualNews: "Boba Addicts Anonymous:\n\nThis month's newsletter highlights a seasonal
+    favorite: Pumpkin Spice! \n\nWidely loved and equally judged, Pumpkin Spice has
+    earned a reputation for being a \"basic\" flavor. But what do some of our members
+    say on this spicy mix being the latest trending milk tea flavor ? Let's find
+    out!\n\n\"No.\" - Blondie\n\n\"I want pie. For some reason.\" - Anjeliqa\n\n\"I
+    LOVE pumpkin spice. Maybe the haters are the basic ones????\" - Rinnie\n\nAnd
+    there we have it. See you all on the next!"

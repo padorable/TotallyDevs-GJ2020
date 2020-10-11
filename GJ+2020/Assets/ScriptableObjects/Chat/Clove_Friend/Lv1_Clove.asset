@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv1_Clove
+  m_EditorClassIdentifier: 
+  Name: Clove
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 0
+    Message: guuuurl
+    Length: 3
+  - isMe: 1
+    Message: yasssss?
+    Length: 2
+  - isMe: 0
+    Message: the jql speaker we've always wanted is available in shop app now
+    Length: 2
+  - isMe: 0
+    Message: totally fetch for working out.
+    Length: 1
+  - isMe: 0
+    Message: or cooking. or whatever1
+    Length: 1
+  - isMe: 1
+    Message: say no more
+    Length: 2
+  - isMe: 1
+    Message: will check
+    Length: 2
+  - isMe: 1
+    Message: if munny gucci
+    Length: 2
+  - isMe: 0
+    Message: kk xx for now delivery here
+    Length: 2

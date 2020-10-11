@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv2_Brit
+  m_EditorClassIdentifier: 
+  Name: Britney
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 1
+    Message: pumpkin
+    Length: 1
+  - isMe: 1
+    Message: pumpkin
+    Length: 1
+  - isMe: 0
+    Message: 0
+    Length: 1
+  - isMe: 1
+    Message: bye pumpkin :(
+    Length: 1
+  - isMe: 0
+    Message: noOOOOOOOOOOOOOOOO i'm here!!
+    Length: 2
+  - isMe: 1
+    Message: hahahahahaha jk
+    Length: 1
+  - isMe: 1
+    Message: just saw the game we want. i can buy it to play now then replay again
+      with you
+    Length: 3
+  - isMe: 0
+    Message: 'ohhhh my gawdddd!! @____@ bersona 4?! '
+    Length: 1
+  - isMe: 1
+    Message: yepperz. also saw some cool posters
+    Length: 1
+  - isMe: 0
+    Message: get the game!!! please oh please oh please!!
+    Length: 2
+  - isMe: 1
+    Message: will do hehe. tell ya when
+    Length: 1
+  - isMe: 1
+    Message: one of teh posters will blow your mind too
+    Length: 2
+  - isMe: 0
+    Message: cant wait to see siIIIIIIIIIIIIs
+    Length: 1

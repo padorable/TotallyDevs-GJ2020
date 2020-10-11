@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv3_Sam
+  m_EditorClassIdentifier: 
+  Name: Sam
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 1
+    Message: hey mom. i LOOOOOVE the new go-to dish. sublime. magnificent.
+    Length: 3
+  - isMe: 0
+    Message: Good day dear. Remember your food pyramid?
+    Length: 2
+  - isMe: 1
+    Message: ... ... as a self-prescribed gremlin, no
+    Length: 2
+  - isMe: 0
+    Message: You need the nutrients, dear. Better dishes, incorporating fruits and
+      veggies. Especially nowadays when I can't cook for you.
+    Length: 4
+  - isMe: 1
+    Message: hmmm... am listening
+    Length: 2
+  - isMe: 0
+    Message: You could buy prepacked ingredients at the app. =)
+    Length: 2
+  - isMe: 1
+    Message: i swear you're an ambassador of theirs now
+    Length: 2
+  - isMe: 0
+    Message: Ha Ha Ha! You always crack me up sweetie. Take a look will you? Would
+      make me sleep at night better = )
+    Length: 3
+  - isMe: 1
+    Message: alright... but only if no more creepy smileys. love you, say hi to brit
+    Length: 2

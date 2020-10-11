@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c51f546f13f6d4458c50adea5fd76da, type: 3}
+  m_Name: Intro_Diary
+  m_EditorClassIdentifier: 
+  Entries:
+  - EntryText: 'Hey. Alex again. But you already know that. '
+    Length: 1
+  - EntryText: "Today\u2019s the start of the lockdown. The news of the virus spread
+      like wildfire -- I didn\u2019t even get to go home. "
+    Length: 3
+  - EntryText: "So it\u2019s going to be three months all alone. By my lonesome.
+      Just me in this condo unit."
+    Length: 2
+  - EntryText: "I wish I could\u2019ve seen Clove or got to go home to be with my
+      mom and little sister at least\u2026"
+    Length: 2
+  - EntryText: " What am I even gonna do?! I\u2019m all alone, and the world\u2019s
+      in some apocalyptic state. "
+    Length: 1
+  - EntryText: Just how much time is three months? Will it end by then? Will we NEVER
+      be able to go out? EeeEEEEEEeeeeeeeeee!!!
+    Length: 3
+  - EntryText: "Sigh. There\u2019s really nothing to do but to try and survive..."
+    Length: 1

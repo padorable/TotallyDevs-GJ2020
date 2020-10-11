@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv0_Sam
+  m_EditorClassIdentifier: 
+  Name: Sam
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 0
+    Message: Sweetie have you heard the news? We're in lockdown so suddenly for 3
+      months. You can't even go home to stay with us!!!
+    Length: 4
+  - isMe: 1
+    Message: oh my goodness. no way
+    Length: 2
+  - isMe: 0
+    Message: We have to keep in touch, dear. Brit and i miss you terribly. Don't
+      forget to take care of yourself. Will be giving you more money per week to
+      get you by.
+    Length: 5
+  - isMe: 0
+    Message: No matter what, We're here sweetie
+    Length: 2
+  - isMe: 1
+    Message: thanks mom, that's reassuring
+    Length: 2
+  - isMe: 0
+    Message: We love you, honey.
+    Length: 1

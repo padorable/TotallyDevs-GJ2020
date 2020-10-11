@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05adc6e668ddba4e8b42191777b000d, type: 3}
+  m_Name: Lv2_Sam
+  m_EditorClassIdentifier: 
+  Name: Sam
+  Picture: {fileID: 0}
+  CurrentChat:
+  - isMe: 1
+    Message: hey mom, reporting for daughter duty
+    Length: 2
+  - isMe: 0
+    Message: Ha Ha ! How is my daughter doing? Have you been eating and stocking
+      right?
+    Length: 3
+  - isMe: 1
+    Message: ...
+    Length: 2
+  - isMe: 0
+    Message: I know you don't cook much, but this is the best time to try new skills.
+      Especially for survival, sweetie. How about that trying that cheesy bacon and
+      eggs dish you love?
+    Length: 5
+  - isMe: 1
+    Message: huh, i just might. the call of cheese, bacon, and eggs is just what
+      i need to escape the clutches of cup noodles, sodium incarnate
+    Length: 5
+  - isMe: 0
+    Message: Ha Ha Ha ! Always so clever, my Alex. By the by...
+    Length: 2
+  - isMe: 0
+    Message: Another sale is in the shop app! It's a bottle you can use for exercising,
+      drinking, et cetera.
+    Length: 3
+  - isMe: 0
+    Message: Just might interest you. Kisses dear, gotta work now.
+    Length: 2
+  - isMe: 1
+    Message: k mom, will check. and cook. but cannot promise not to burn anything
+    Length: 3

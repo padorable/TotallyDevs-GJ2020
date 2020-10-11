@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94fa8ad336459242905e4ac1be8c7a2, type: 3}
+  m_Name: 1st_BNN_2
+  m_EditorClassIdentifier: 
+  NewsTitle: BNN - BeeVID-19 Special
+  ActualNews: 'Vaccines against BeeVID-19 are reportedly undergoing research.
+
+
+    Phase
+    2 trials are set to begin mid-November, while Phase 3, the final phase, is set
+    to begin on December.'

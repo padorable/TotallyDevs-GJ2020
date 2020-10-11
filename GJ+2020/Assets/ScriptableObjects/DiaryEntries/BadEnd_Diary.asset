@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c51f546f13f6d4458c50adea5fd76da, type: 3}
+  m_Name: BadEnd_Diary
+  m_EditorClassIdentifier: 
+  Entries:
+  - EntryText: The past three months were a blur.
+    Length: 1
+  - EntryText: "I didn\u2019t really feel anything, nor did anything that felt like
+      \u201Cliving\u201D. "
+    Length: 2
+  - EntryText: "We couldn\u2019t even spend Christmas together as a family. "
+    Length: 2
+  - EntryText: I feel hollow.
+    Length: 1
+  - EntryText: News sources are saying the lockdown would be extended, and vaccines
+      would take longer to make.
+    Length: 2
+  - EntryText: 'Oh joy. '
+    Length: 1
+  - EntryText: 'More of this drifting through time, aimless and lonely. '
+    Length: 2
+  - EntryText: "Maybe I could\u2019ve handled myself better. If only I could turn
+      back time..."
+    Length: 2
