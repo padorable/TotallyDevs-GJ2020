@@ -9,14 +9,7 @@ public class APHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.OnChangedActionPoints.AddListener(() => 
-        {
-            if (GameManager.instance.ActionPoints > 0)
-                TextAmount.text = "AP: " + GameManager.instance.ActionPoints;
-            else
-                TextAmount.text = "END WEEK";
-        });
-
+        GameManager.instance.OnChangedActionPoints.AddListener(() => TextAmount.text = "AP: " + GameManager.instance.ActionPoints);
         TextAmount.text = "AP: " + 3;
     }
 }

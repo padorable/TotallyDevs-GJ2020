@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     private Text textRenderer;
 
-    [SerializeField] private string defaultText = "...";
+    [SerializeField] private string defaultText = "Dev: ...";
 
     private bool running = false;
 
@@ -76,7 +76,6 @@ public class DialogueManager : MonoBehaviour
             
         }
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))

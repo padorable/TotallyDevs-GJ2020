@@ -28,7 +28,6 @@ public class ChoicesDialogue : MonoBehaviour
                 Choices[i].SetActive(false);
                 continue;
             }
-
             Choices[i].GetComponent<Text>().text = c.ChoiceText + " (Cost: " + c.APCost + ")";
             if (GameManager.instance.ActionPoints < c.APCost)
             {
@@ -61,22 +60,16 @@ public class ChoicesDialogue : MonoBehaviour
             entry.callback.AddListener((data) => StatHandler.instance.ReturnAssistBar());
 
             e.triggers.Add(entry);
+
             Button b = Choices[i].GetComponent<Button>();
-            int d = i;
             b.interactable = true;
             b.onClick.RemoveAllListeners();
             b.onClick.AddListener(() => {
-                ActionDone.instance.DoAction(type, d);
                 StatHandler.instance.SetBar(current + toAdd);
                 SetChoices(type);
                 GameManager.instance.ActionPoints -= c.APCost;
                 Debug.Log(GameManager.instance.ActionPoints);
                 DialogueManager.instance.SetDialogue("...");
-
-                if(type == Stat.Nourishment)
-                {
-                    c.Amount--;
-                }
             });
         }
     }
