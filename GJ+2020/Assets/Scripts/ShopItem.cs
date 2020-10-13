@@ -11,7 +11,7 @@ public class ShopItem : MonoBehaviour
     public int Cost;
     private Button button;
     private Text buttonText;
-
+    public bool HasBoughtToday = false;
     private string origText;
 
     private void Start()
@@ -20,6 +20,18 @@ public class ShopItem : MonoBehaviour
         buttonText = button.transform.GetChild(0).GetComponent<Text>();
         buttonText.text = "Buy " + Cost;
         origText = buttonText.text;
+
+        GameManager.instance.NewWeek.AddListener(() => HasBoughtToday = false);
+    }
+
+    public void Refresh()
+    {
+        ChoicesValue s = GameManager.instance.Data.GetDataValue(stat).Choices[LevelToUnlock];
+        if (s.IsUnlocked && s.Amount == 0 && !HasBoughtToday)
+        {
+            buttonText.text = "Buy " + Cost;
+            this.GetComponentInChildren<Button>().interactable = true;
+        }
     }
 
     public void Buy()
@@ -42,7 +54,7 @@ public class ShopItem : MonoBehaviour
             {
                 this.GetComponentInChildren<Button>().transform.GetChild(0).GetComponent<Text>().text = "Out of Stock";
             }
-
+            HasBoughtToday = true;
             OnBuy();
 
             //if (stat == Stat.Nourishment)

@@ -7,6 +7,19 @@ public class ShopUnlock : MonoBehaviour
 {
     public List<LockedItems> Locked;
     public Text Credits;
+    public GameObject Content;
+
+    private void Start()
+    {
+        PhoneManager.instance.OnOpenNewScreen.AddListener((x) =>
+        {
+            foreach(ShopItem item in Content.GetComponentsInChildren<ShopItem>())
+            {
+                if(item.gameObject.activeSelf)
+                    item.Refresh();
+            }
+        });
+    }
 
     public void checkItems()
     {

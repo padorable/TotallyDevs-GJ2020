@@ -7,12 +7,14 @@ using UnityEngine.EventSystems;
 public class ChoicesDialogue : MonoBehaviour
 {
     List<GameObject> Choices = new List<GameObject>();
+    public List<StatColors> Colors;
+    public GameObject Content;
 
     // Start is called before the first frame update
     void Awake()
     {
-        for(int i = 1; i <= 3; i++)
-            Choices.Add(this.transform.GetChild(i).gameObject);
+        for(int i = 0; i < 3; i++)
+            Choices.Add(Content.transform.GetChild(i).gameObject);
     }
 
     public void SetChoices(Stat type)
@@ -24,12 +26,12 @@ public class ChoicesDialogue : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             ChoicesValue c = GameManager.instance.Data.GetDataValue(type).Choices[i];
-            if (!c.IsUnlocked)
+            if (!c.IsUnlocked || c.Amount == 0)
             {
                 Choices[i].SetActive(false);
                 continue;
             }
-            Choices[i].GetComponent<Text>().text = c.ChoiceText + " (Cost: " + c.APCost + ")";
+            Choices[i].transform.GetChild(0).GetComponent<Text>().text = c.ChoiceText + " (Cost: " + c.APCost + ")";
             if (GameManager.instance.ActionPoints < c.APCost)
             {
                 Choices[i].GetComponent<Button>().interactable = false;
@@ -39,6 +41,7 @@ public class ChoicesDialogue : MonoBehaviour
             }
 
             Choices[i].SetActive(true);
+            Choices[i].GetComponent<Image>().color = Colors.Find(x => x.stat == type).color;
             float toAdd = GameManager.instance.Data.GetDataValue(type).Choices[i].MeterFill;
             EventTrigger e = Choices[i].GetComponent<EventTrigger>();
             e.triggers.Clear();
@@ -82,4 +85,11 @@ public class ChoicesDialogue : MonoBehaviour
             });
         }
     }
+}
+
+[System.Serializable]
+public struct StatColors
+{
+    public Stat stat;
+    public Color color;
 }

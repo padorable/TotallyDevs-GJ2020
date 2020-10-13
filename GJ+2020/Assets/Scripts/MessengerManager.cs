@@ -69,7 +69,7 @@ public class MessengerManager : MonoBehaviour
     {
         Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
-
+        Debug.Log(r.IsOnline);
         Viewport.offsetMin = new Vector2(4, 58);
         ChatBox.SetActive(true);
         ChatBox.GetComponent<Button>().interactable = GameManager.instance.ActionPoints >= cost;
@@ -103,7 +103,6 @@ public class MessengerManager : MonoBehaviour
 
         e.triggers.Add(entry);
 
-
         CurrentMessaging = chat;
         SetMessageBoxes();
         ChatBoxHeart.SetActive(true);
@@ -127,6 +126,8 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowMessagesAndHeartOnly(MessageChat chat)
     {
+        Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
+        OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
         Viewport.offsetMin = new Vector2(4, 30);
         ChatBox.SetActive(false);
         CurrentMessaging = chat;

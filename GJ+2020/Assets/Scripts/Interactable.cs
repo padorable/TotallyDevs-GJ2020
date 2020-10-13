@@ -36,12 +36,14 @@ public class Interactable : MonoBehaviour
 
     private bool IsAvailable()
     {
+        if (GameManager.instance.ActionPoints == 0) return false;
+
         DataValues d = GameManager.instance.Data.GetDataValue(Type);
 
         bool available = false;
         foreach (ChoicesValue c in d.Choices)
         {
-            if (c.IsUnlocked || c.Amount > 0)
+            if (c.IsUnlocked && c.Amount > 0)
             {
                 available = true;
                 break;
