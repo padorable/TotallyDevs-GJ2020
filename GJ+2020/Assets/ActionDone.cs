@@ -22,7 +22,9 @@ public class ActionDone : MonoBehaviour
 
     public void DoAction(Stat t, int l)
     {
-        StartCoroutine(a(t,l));
+        ActionPicture ap = pictures.Find((x) => x.type == t && x.level == l);
+        //DialogueManager.instance.SetDialogue(ap.Dialogue[Mathf.FloorToInt(GameManager.instance.WeekNumber/4)]);
+        StartCoroutine(a(ap));
     }
 
     IEnumerator fade(bool fadeIn)
@@ -41,10 +43,8 @@ public class ActionDone : MonoBehaviour
         }
     }
 
-    IEnumerator a(Stat t, int l)
+    IEnumerator a(ActionPicture ap)
     {
-        ActionPicture ap = pictures.Find((x) => x.type == t && x.level == l);
-
         StartCoroutine(fade(true));
         if (ap != null)
         {
@@ -78,4 +78,5 @@ public class ActionPicture
     public int level;
 
     public List<Sprite> sprites;
+    public List<string> Dialogue;
 }

@@ -9,12 +9,11 @@ public class ShopItem : MonoBehaviour
     public Stat stat;
     public int LevelToUnlock;
     public int Cost;
-    public bool IsBought = false;
     private Button button;
     private Text buttonText;
-    public GameObject SpriteToUnlock;
 
     private string origText;
+
     private void Start()
     {
         button = this.GetComponentInChildren<Button>();
@@ -28,11 +27,20 @@ public class ShopItem : MonoBehaviour
         if(Cost <= DataHandler.Money)
         {
             DataHandler.Money -= Cost;
-            GameManager.instance.Data.GetDataValue(stat).Choices[LevelToUnlock].IsUnlocked = true;
-            IsBought = true;
-            SpriteToUnlock.SetActive(true);
+            GameManager.instance.UnlockItem(stat, LevelToUnlock);
+
+            //SpriteToUnlock.SetActive(true);
             this.GetComponentInChildren<Button>().interactable = false;
-            this.GetComponentInChildren<Button>().transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "Bought";
+
+            if (stat != Stat.Nourishment)
+            {
+                this.GetComponentInChildren<Button>().transform.GetChild(0).GetComponent<Text>().text = "Bought";
+            }
+            else
+            {
+                this.GetComponentInChildren<Button>().transform.GetChild(0).GetComponent<Text>().text = "Out of Stock";
+            }
+
             OnBuy();
 
             //if (stat == Stat.Nourishment)

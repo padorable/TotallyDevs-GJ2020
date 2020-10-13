@@ -39,7 +39,7 @@ MonoBehaviour:
       APCost: 1
       MeterFill: 0.15
       ChoiceText: Watch Something
-      Amount: 0
+      Amount: 1
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25
@@ -57,7 +57,7 @@ MonoBehaviour:
       APCost: 1
       MeterFill: 0.15
       ChoiceText: Exercise on your own
-      Amount: 0
+      Amount: 1
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25

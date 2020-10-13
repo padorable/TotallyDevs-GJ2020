@@ -9,9 +9,45 @@ public class Interactable : MonoBehaviour
     public ChoicesDialogue Choices;
 
     public Stat Type;
+    public string TextIfUnavailable = "Hmm... I can't do that right now";
+    public List<GameObject> Objects;
+
+    private void Start()
+    {
+        GameManager.instance.OnItemChanged.AddListener(UpdateList);
+    }
+
+    public void UpdateList()
+    {
+        DataValues d = GameManager.instance.Data.GetDataValue(Type);
+        for(int i = 0; i < 3; i++)
+        {
+            Objects[i].SetActive(d.Choices[i].IsUnlocked && d.Choices[i].Amount > 0);
+        }
+    }
 
     public void ShowChoices()
     {
-        DialogueManager.instance.SetChoices(Type);
+        if(IsAvailable())
+            DialogueManager.instance.SetChoices(Type);
+        else
+            DialogueManager.instance.SetDialogue(TextIfUnavailable);
+    }
+
+    private bool IsAvailable()
+    {
+        DataValues d = GameManager.instance.Data.GetDataValue(Type);
+
+        bool available = false;
+        foreach (ChoicesValue c in d.Choices)
+        {
+            if (c.IsUnlocked || c.Amount > 0)
+            {
+                available = true;
+                break;
+            }
+        }
+
+        return available;
     }
 }
