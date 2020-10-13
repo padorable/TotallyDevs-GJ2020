@@ -9,6 +9,7 @@ public class MessageOwner : MonoBehaviour
     public Text OwnerName;
     public Text PreviousText;
     public Image Image;
+    public Image OnlineImage;
 
     [Space]
     public MessageChat CurrentChat;

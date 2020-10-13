@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+
+public class OpenNewScreen : UnityEvent<GameObject> { }
 
 public class PhoneManager : MonoBehaviour
 {
@@ -15,6 +18,8 @@ public class PhoneManager : MonoBehaviour
     public GameObject Buttons;
 
     public static PhoneManager instance;
+    public OpenNewScreen OnOpenNewScreen = new OpenNewScreen();
+
     private List<GameObject> PreviouslyVisitedScreens = new List<GameObject>();
     private bool wait = false;
     private void Awake()
@@ -58,6 +63,7 @@ public class PhoneManager : MonoBehaviour
 
     IEnumerator FadeToNext()
     {
+        OnOpenNewScreen.Invoke(NextScreen);
         wait = true;
         CanvasGroup c = CurrentScreen.GetComponent<CanvasGroup>();
         CanvasGroup n = NextScreen.GetComponent<CanvasGroup>();
@@ -99,17 +105,8 @@ public class PhoneManager : MonoBehaviour
 
     public void UnlockPhone()
     {
-        if(PrevScreen == null)
-        {
-            NextScreen = HomeScreen;
-            StartCoroutine(FadeToNext());
-        }
-        else
-        {
-            NextScreen = PrevScreen;
-            StartCoroutine(FadeToNext());
-        }
-
+        NextScreen = HomeScreen;
+        StartCoroutine(FadeToNext());
         Buttons.SetActive(true);
     }
 

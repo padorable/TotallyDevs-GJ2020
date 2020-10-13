@@ -18,18 +18,18 @@ MonoBehaviour:
     InitialValue: 0.8
     Choices:
     - IsUnlocked: 1
-      APCost: 0
-      MeterFill: 0.2
+      APCost: 1
+      MeterFill: 0.15
       ChoiceText: 
       Amount: 0
     - IsUnlocked: 0
-      APCost: 0
-      MeterFill: 0.3
+      APCost: 1
+      MeterFill: 0.25
       ChoiceText: 
       Amount: 0
     - IsUnlocked: 0
-      APCost: 0
-      MeterFill: 0.4
+      APCost: 2
+      MeterFill: 0.6
       ChoiceText: 
       Amount: 0
   - stat: 1

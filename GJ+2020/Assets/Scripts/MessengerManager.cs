@@ -12,6 +12,7 @@ public class MessengerManager : MonoBehaviour
 
     public MessageChat CurrentMessaging;
     public GameObject MessageContent;
+    public GameObject PeopleContent;
     public Confirmation ConfirmWindow;
     private List<GameObject> activeObjects = new List<GameObject>();
     private List<GameObject> disabledObjects = new List<GameObject>();
@@ -24,6 +25,7 @@ public class MessengerManager : MonoBehaviour
     public Text ChatBoxText;
     public Image ChatBoxPerson;
     public GameObject ChatBoxHeart;
+    public Image OnlineImage;
 
     public static MessengerManager instance;
     [HideInInspector] public UpdateMessages OnUpdateMessages;
@@ -39,6 +41,20 @@ public class MessengerManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PhoneManager.instance.OnOpenNewScreen.AddListener(x =>
+        {
+            if(x == this.gameObject)
+            {
+                Debug.Log("AAAAAAA");
+                foreach(RepliableMessageOwner r in PeopleContent.GetComponentsInChildren<RepliableMessageOwner>())
+                {
+                    r.CheckIfOnline();
+                }
+            }
+        });
+    }
     public void ShowMessages(MessageChat chat)
     {
         Viewport.offsetMin = new Vector2 (4, 30);
@@ -50,13 +66,16 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowMessagesAndChat(MessageChat chat, int cost)
     {
+        OnlineImage.color = DataHandler.Relationships.Find(x => x.Name == chat.Name).IsOnline ? Color.green : Color.grey;
+
         Viewport.offsetMin = new Vector2(4, 58);
         ChatBox.SetActive(true);
+        ChatBox.GetComponent<Button>().interactable = GameManager.instance.ActionPoints >= cost;
         CurrentMessaging = chat;
         SetMessageBoxes();
         ChatBoxHeart.SetActive(true);
         updateHearts(DataHandler.GetRelationshipLevel(chat.Name));
-        ConfirmWindow.Cost = cost;
+        ChatBox.GetComponentInChildren<Text>().text = "Chat (Cost: " + cost + " AP)";
     }
 
     private void updateHearts(int amount)
@@ -87,8 +106,8 @@ public class MessengerManager : MonoBehaviour
     {
         ChatBoxText.text = CurrentMessaging.Name;
         ChatBoxPerson.sprite = CurrentMessaging.Picture;
-
-        for(int i = activeObjects.Count - 1; i >= 0; i--)
+        
+        for (int i = activeObjects.Count - 1; i >= 0; i--)
         {
             disabledObjects.Add(activeObjects[i]);
             activeObjects[i].SetActive(false);
@@ -146,14 +165,10 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowConfirmation()
     {
-        ConfirmWindow.gameObject.SetActive(true);
-        ConfirmWindow.OnOkay = new UnityEvent();
-        ConfirmWindow.OnOkay.AddListener(()=> 
-        {
-            NewMessages(ToBeAdded);
-            OnUpdateMessages.Invoke(ToBeAdded.CurrentChat);
-            Viewport.offsetMin = new Vector2(4, 30);
-            ChatBox.SetActive(false);
-        });
+        NewMessages(ToBeAdded);
+        OnUpdateMessages.Invoke(ToBeAdded.CurrentChat);
+        Viewport.offsetMin = new Vector2(4, 30);
+        ChatBox.SetActive(false);
+        updateHearts(DataHandler.GetRelationshipLevel(CurrentMessaging.Name));
     }
 }

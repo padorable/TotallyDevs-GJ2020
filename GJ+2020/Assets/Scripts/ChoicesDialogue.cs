@@ -35,7 +35,7 @@ public class ChoicesDialogue : MonoBehaviour
                 Choices[i].GetComponent<Button>().interactable = false;
                 Choices[i].GetComponent<EventTrigger>().triggers.Clear();
                 Choices[i].GetComponent<Button>().onClick.RemoveAllListeners();
-                return;
+                continue;
             }
 
             Choices[i].SetActive(true);

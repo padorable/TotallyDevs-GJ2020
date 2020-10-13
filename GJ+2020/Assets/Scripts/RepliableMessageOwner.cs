@@ -27,12 +27,12 @@ public class RepliableMessageOwner : MessageOwner
         }
         int index = Mathf.Min(currentPerson.Level, Messages.Count - 1);
         MessengerManager.instance.ToBeAdded = Messages[index];
-        int cost = Mathf.FloorToInt(currentPerson.Level / 2) + 1;
+        int cost = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].APCost;
+
         if (currentPerson.IsOnline)
             MessengerManager.instance.ShowMessagesAndChat(PreviousChat, cost);
         else
             MessengerManager.instance.ShowMessagesAndHeartOnly(PreviousChat);
-
 
         MessengerManager.instance.OnUpdateMessages = new UpdateMessages();
 
@@ -41,17 +41,18 @@ public class RepliableMessageOwner : MessageOwner
             currentPerson.LastWeekTalkedTo = GameManager.instance.WeekNumber;
             currentPerson.IsOnline = false;
             PreviousChat.CurrentChat.AddRange(x);
-
-            UnityAction action = () =>
-            {
-                DataHandler.LevelUpRelationship(CurrentChat.Name);
-                MessengerManager.instance.OnUpdateMessages.RemoveAllListeners();
-            };
             GameManager.instance.ActionPoints -= cost;
-            GameManager.instance.NewWeek.AddListener(action);
             StatHandler.instance.SetStat(Stat.Social);
-            StatHandler.instance.SetBar(DataHandler.Social + .2f);
-            GameManager.instance.NewWeek.AddListener(() => GameManager.instance.NewWeek.RemoveListener(action));
+            float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].MeterFill;
+            StatHandler.instance.SetBar(DataHandler.Social + toFill);
+            UpdatePreviousText();
+            DataHandler.LevelUpRelationship(CurrentChat.Name);
+            MessengerManager.instance.OnUpdateMessages.RemoveAllListeners();
         });
+    }
+
+    public void CheckIfOnline()
+    {
+        OnlineImage.color = currentPerson.IsOnline ? Color.green : Color.grey;
     }
 }

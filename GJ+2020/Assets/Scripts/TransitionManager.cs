@@ -35,9 +35,17 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator fade()
     {
-        if (BeforeTransition != null)
-            BeforeTransition.Invoke();
+        BeforeTransition?.Invoke();
 
+        float duration = .5f, elapsedTime = 0;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 0;
+        while (elapsedTime < duration)
+        {
+            elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, duration);
+            canvasGroup.alpha = elapsedTime / duration;
+            yield return null;
+        }
         CurrentMonth.text = ReturnMonth(GameManager.instance.WeekNumber - 1);
         NextMonth.text = ReturnMonth(GameManager.instance.WeekNumber);
 
@@ -53,16 +61,7 @@ public class TransitionManager : MonoBehaviour
             animator.Play("TransitionWeek", -1, 0);
         }
 
-        float duration = .5f, elapsedTime = 0;
-        canvasGroup.blocksRaycasts = true;
-        canvasGroup.alpha = 0;
-        while(elapsedTime < duration)
-        {
-            elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, duration);
-            canvasGroup.alpha = elapsedTime / duration;
-            yield return null;
-        }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         elapsedTime = 0;
 
         while (elapsedTime < duration)
