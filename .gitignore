@@ -14,12 +14,14 @@ ExportedObj/
 *.unityproj
 *.suo
 *.tmp
+*.csproj
 *.user
 *.userprefs
 *.pidb
 *.booproj
 *.svd
 *.pdb
+*.sln
 *.opendb
 
 # Unity3D generated meta files

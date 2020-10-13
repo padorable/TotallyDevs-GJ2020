@@ -185,6 +185,7 @@ public class MessengerManager : MonoBehaviour
 
     IEnumerator LiveSend(MessageChat chat)
     {
+        MouseCheck.instance.enabled = false;
         PhoneManager.instance.InteractButtons(false);
         CurrentMessaging = chat;
         foreach (Chat c in chat.CurrentChat)
@@ -195,6 +196,7 @@ public class MessengerManager : MonoBehaviour
             Viewport.transform.parent.GetComponent<ScrollRect>().velocity = new Vector2(0, 200f);
         }
         PhoneManager.instance.InteractButtons(true);
+        MouseCheck.instance.enabled = true;
     }
 
     public void ShowConfirmation()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2004091782505771814}
   m_Layer: 5
   m_Name: News Tab
-  m_TagString: Untagged
+  m_TagString: Phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

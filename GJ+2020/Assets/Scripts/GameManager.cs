@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour
 
     public void NextWeek()
     {
+        if (!MouseCheck.instance.enabled) return;
+
         DataHandler.Mood = Mathf.Max(0, DataHandler.Mood - .2f + DataHandler.MoodBonus);
         DataHandler.Nourishment = Mathf.Max(0, DataHandler.Nourishment - .2f + DataHandler.NourishmentBonus);
         DataHandler.Social = Mathf.Max(0, DataHandler.Social - .2f + DataHandler.SocialBonus);

@@ -139,4 +139,12 @@ public class PhoneManager : MonoBehaviour
             b.interactable = a;
         }
     }
+
+    public bool IsStillLocked
+    {
+        get
+        {
+            return CurrentScreen == LockScreen;
+        }
+    }
 }

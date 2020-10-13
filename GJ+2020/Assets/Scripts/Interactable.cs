@@ -22,12 +22,15 @@ public class Interactable : MonoBehaviour
         DataValues d = GameManager.instance.Data.GetDataValue(Type);
         for(int i = 0; i < 3; i++)
         {
+            if (Objects[i] == null) continue;
             Objects[i].SetActive(d.Choices[i].IsUnlocked && d.Choices[i].Amount > 0);
         }
     }
 
     public void ShowChoices()
     {
+        if (!MouseCheck.instance.enabled) return;
+
         if(IsAvailable())
             DialogueManager.instance.SetChoices(Type);
         else

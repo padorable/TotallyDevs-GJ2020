@@ -15,7 +15,7 @@ public class NewsTabManager : MonoBehaviour
         Debug.Log(news.CurrentNews.NewsTitle);
         Title.text = news.CurrentNews.NewsTitle;
 
-        Date.text = GameManager.instance.Month(news.NewsWeekReleasedOn, false) + ", Week " + (news.NewsWeekReleasedOn % 4 + 1);
+        Date.text = GameManager.instance.Month(news.NewsWeekReleasedOn, false) + ",\nWeek " + (news.NewsWeekReleasedOn % 4 + 1);
         News.transform.parent.GetComponent<ContentSizeFitter>().enabled = false;
         News.text = news.CurrentNews.ActualNews;
 
