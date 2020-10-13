@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
         WeekNumber++;
         ActionPoints = 3;
-        DataHandler.Money += 750 * (float)Mathf.FloorToInt(WeekNumber / 4);
+        DataHandler.Money += 750 * ((float)Mathf.FloorToInt(WeekNumber / 4) + 1);
     }
 
     public string Month(int week, bool shortcut)

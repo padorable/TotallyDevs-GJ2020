@@ -49,7 +49,12 @@ public class ChoicesDialogue : MonoBehaviour
                 callback = new EventTrigger.TriggerEvent()
             };
 
-            entry.callback.AddListener((data) => StatHandler.instance.SetAssistBar(current + toAdd));
+            entry.callback.AddListener((data) =>
+            {
+                StatHandler.instance.ReturnAssistBar();
+                StatHandler.instance.SetStat(type);
+                StatHandler.instance.SetAssistBar(current + toAdd);
+            });
 
             e.triggers.Add(entry);
             entry = new EventTrigger.Entry

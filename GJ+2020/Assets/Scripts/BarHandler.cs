@@ -70,7 +70,11 @@ public class BarHandler : MonoBehaviour
 
     public void ReturnAssistBar()
     {
-        StopCoroutine(currentCoroutine);
+        if (barAssist.fillAmount == bar.fillAmount) return;
+
+        if(currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+
         barAssist.fillAmount = barAssistPercent;
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);

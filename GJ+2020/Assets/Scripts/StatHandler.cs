@@ -31,18 +31,18 @@ public class StatHandler : MonoBehaviour
 
     public void SetAssistBar(float percent)
     {
-        toChange.SetAssistBar(percent);
+        toChange?.SetAssistBar(percent);
     }
 
     public void ReturnAssistBar()
     {
-        toChange.ReturnAssistBar();
+        toChange?.ReturnAssistBar();
     }
 
     public void SetBar(float percent)
     {
         DataHandler.SetStat(CurrentStatToChange,percent);
-        toChange.SetBar(percent);
+        toChange?.SetBar(percent);
     }
 
 

@@ -29,7 +29,7 @@ public class RepliableMessageOwner : MessageOwner
         MessengerManager.instance.ToBeAdded = Messages[index];
         int cost = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].APCost;
 
-        if (currentPerson.IsOnline)
+        if (currentPerson.IsOnline && currentPerson.Level < 2)
             MessengerManager.instance.ShowMessagesAndChat(PreviousChat, cost);
         else
             MessengerManager.instance.ShowMessagesAndHeartOnly(PreviousChat);
@@ -42,9 +42,11 @@ public class RepliableMessageOwner : MessageOwner
             currentPerson.IsOnline = false;
             PreviousChat.CurrentChat.AddRange(x);
             GameManager.instance.ActionPoints -= cost;
+
             StatHandler.instance.SetStat(Stat.Social);
             float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].MeterFill;
             StatHandler.instance.SetBar(DataHandler.Social + toFill);
+
             UpdatePreviousText();
             DataHandler.LevelUpRelationship(CurrentChat.Name);
             MessengerManager.instance.OnUpdateMessages.RemoveAllListeners();
