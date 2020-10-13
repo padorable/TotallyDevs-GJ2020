@@ -9764,7 +9764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -116, y: 64.23}
+  m_AnchoredPosition: {x: -116, y: 64.25}
   m_SizeDelta: {x: 208, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882878372
@@ -16950,7 +16950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Content: {fileID: 815412844}
   PrefabEntry: {fileID: 5056477783086102777, guid: 4f60346f9a8d4fd4d8e85d69f3828be3, type: 3}
-  CurrentDiaryEntry: {fileID: 11400000, guid: d45cf34960a687249b854258d1224573, type: 2}
+  CurrentDiaryEntry: {fileID: 0}
   ButtonEntry: {fileID: 495307321}
   OnEnd:
     m_PersistentCalls:
@@ -17985,7 +17985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 288.9, y: 218}
+  m_AnchoredPosition: {x: 289, y: 218}
   m_SizeDelta: {x: 501.7, y: 301.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1749554684
@@ -19257,7 +19257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 97.3, y: 0}
   m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1917920660
@@ -20006,12 +20006,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BG:
-  - {fileID: 8300000, guid: 07e23e9a2cf07444180180275d7a0616, type: 3}
-  - {fileID: 8300000, guid: 231990c3c21457040be1c79bc96318b8, type: 3}
-  - {fileID: 8300000, guid: 62ea70149680c7c489f626f2bf969b85, type: 3}
+  - Clip: {fileID: 8300000, guid: 07e23e9a2cf07444180180275d7a0616, type: 3}
+    Volume: 0.2
+  - Clip: {fileID: 8300000, guid: 231990c3c21457040be1c79bc96318b8, type: 3}
+    Volume: 0.2
+  - Clip: {fileID: 8300000, guid: 62ea70149680c7c489f626f2bf969b85, type: 3}
+    Volume: 0.2
   FX:
-  - {fileID: 8300000, guid: 929bae952dac927469c3c4ef857ed967, type: 3}
-  - {fileID: 8300000, guid: 01fcbf7cfc6414f4cbab8b334ae76bce, type: 3}
+  - Clip: {fileID: 8300000, guid: 929bae952dac927469c3c4ef857ed967, type: 3}
+    Volume: 1
+  - Clip: {fileID: 8300000, guid: 01fcbf7cfc6414f4cbab8b334ae76bce, type: 3}
+    Volume: 1
 --- !u!4 &2000418923
 Transform:
   m_ObjectHideFlags: 0
