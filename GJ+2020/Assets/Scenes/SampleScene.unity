@@ -1953,55 +1953,97 @@ MonoBehaviour:
     sprites:
     - {fileID: 21300000, guid: 1c55f43375314af46963ad21d8237092, type: 3}
     - {fileID: 21300000, guid: 86b9d9d3624a5eb4d9ecde42361c8e0d, type: 3}
-    Dialogue: []
+    Dialogue:
+    - "Well, let\u2019s see about this. Never really done this. How hard can it be\u2026
+      right?"
+    - "I can do it, I will do it, I should do it\u2026 ugh. Gets frustrating to keep
+      it up."
+    - There has GOT to be a more engaging way to do this.
   - type: 2
     level: 1
     sprites:
     - {fileID: 21300000, guid: d2411806b9a5f0347a0320bb6d539be8, type: 3}
     - {fileID: 21300000, guid: df9a509dc81aa714ca1dd3208184e780, type: 3}
-    Dialogue: []
+    Dialogue:
+    - "I\u2019m jittery. But at least something would hold me to it."
+    - THIS. IS. SPARTAAAAAAAAAAAAAAAA!!
+    - "I\u2019m buff now all right. Absolute unit right here. This can be soooo tiring
+      though. Is soreness the price of being buff?"
   - type: 2
     level: 2
     sprites:
     - {fileID: 21300000, guid: e3b9edbb1b17c6f44a9d6abe002c06de, type: 3}
     - {fileID: 21300000, guid: 4427ed1a848b64848ac4af81dae1e985, type: 3}
-    Dialogue: []
+    Dialogue:
+    - 
+    - "Now THIS is where it\u2019s at. The endless online content. Customizing what
+      I can do. This RAD as heck mat. Yes."
+    - "Mental note to thank Clove for suggesting this. No wonder she\u2019s always
+      loved exercise! My mind is sooooo clear. I feel like a sparkling, brand new,
+      -improved- gremlin."
   - type: 1
     level: 0
     sprites:
     - {fileID: 21300000, guid: 03ea575180ac2e14eaf11ef6afd7bdc0, type: 3}
     - {fileID: 21300000, guid: dc99f1d1bc659f0488bcd0be1807ddc7, type: 3}
-    Dialogue: []
+    Dialogue:
+    - Lil Witch Geraldine!!! SO excited to watch. Pretty sure Britney would be stoked
+      to talk about it again, too.
+    - ' A rerun never hurt. How is she so adorable!'
+    - "I wonder how she\u2019s spending her time? Hope she has a support system in
+      these times. Wonder if she\u2019s posted again?"
   - type: 1
     level: 1
     sprites:
     - {fileID: 21300000, guid: 74689ef92a656bb46bfd8223661c1cc4, type: 3}
     - {fileID: 21300000, guid: 39d6772266b8e264c8c4fe5eb2fb3f1b, type: 3}
-    Dialogue: []
+    Dialogue:
+    - This game is so heartwarming. Wish I were back in high school.
+    - Never seen a more engaging, sincere, and immersive tale. I, for one, could
+      never finish that gigantinormous beef bowl challenge.. Where IS my bersona?
+    - "I wonder where Brit-brit is in the game. It\u2019d be fun to catch up with
+      her on this. Really appreciate her recommendation."
   - type: 1
     level: 2
     sprites:
     - {fileID: 21300000, guid: fbab9b9bc85ad5f49944f8f4ba04a716, type: 3}
     - {fileID: 21300000, guid: a075831f40a52724eb5f3c74e813fb41, type: 3}
-    Dialogue: []
+    Dialogue:
+    - 
+    - Sweet kitty. Cutie kitty. Eat-a-lot, poop-a-lot kitty. All you, my buscey Lucy.
+    - Lucy is a gift. Is this how parents feel toward their children? Gobble that
+      AAAALL up love!
   - type: 3
     level: 0
     sprites:
     - {fileID: 21300000, guid: 2c35250f0097ef5479a1a472e0f26679, type: 3}
     - {fileID: 21300000, guid: eead08f8dc733074cabd1f78f26fda6b, type: 3}
-    Dialogue: []
+    Dialogue:
+    - "Good ol\u2019 trusty cup noodles. Yum yum in my tum tum."
+    - Cup noodles. My old friend. My old pal. My shortcut to having kidney stones.
+    - "This isn\u2019t the healthiest thing. Should really eat healthier. Poor mom
+      would worry."
   - type: 3
     level: 1
     sprites:
     - {fileID: 21300000, guid: 3efa1455fe231ba4ea3dfaa40e8b6d4d, type: 3}
     - {fileID: 21300000, guid: 19e1ce5e62f89a64694f86e72c08702d, type: 3}
-    Dialogue: []
+    Dialogue:
+    - Mmmhm bacon.
+    - Mmmmmmmhm bacon. Eggs. CHEEZUS!
+    - "o be honest, if this had vegetables and were a balanced meal, I\u2019d have
+      this daily. Still, bacon~"
   - type: 3
     level: 2
     sprites:
     - {fileID: 21300000, guid: 5a386b4a4eaa4c1428a91e83144e1e9c, type: 3}
     - {fileID: 21300000, guid: d806760d50842044199f12d12b9106c2, type: 3}
-    Dialogue: []
+    Dialogue:
+    - 
+    - "I guess I could let the veggies slide since they\u2019re good for me. Chicken
+      best though."
+    - Veggies, oh veggies. I have grown to love your easily spoiled and truly expensive
+      bum.  Ah yes, adulting.
   img: {fileID: 172351069}
 --- !u!1 &189039038
 GameObject:
@@ -2546,8 +2588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1f6a2ecf586274abb6f853cb4a057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: 2
-  LevelToUnlock: 0
+  stat: 1
+  LevelToUnlock: -1
   Cost: 350
   givePercent: 0.04
   ToUnlock: {fileID: 0}
@@ -3141,7 +3183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &279753698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3160,10 +3202,10 @@ RectTransform:
   m_Father: {fileID: 1587245081}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 104, y: -516.325}
-  m_SizeDelta: {x: 192, y: 182.05}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 182.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279753699
 MonoBehaviour:
@@ -4514,7 +4556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 104, y: -516.325}
+  m_AnchoredPosition: {x: 104, y: -108.025}
   m_SizeDelta: {x: 192, y: 182.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402709474
@@ -4663,7 +4705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &411563934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4682,10 +4724,10 @@ RectTransform:
   m_Father: {fileID: 1587245081}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 182.05}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 104, y: -108.025}
+  m_SizeDelta: {x: 192, y: 182.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411563935
 MonoBehaviour:
@@ -4738,10 +4780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 2
-  LevelToUnlock: 0
+  LevelToUnlock: -1
   Cost: 400
   givePercent: 0.04
-  ToUnlock: {fileID: 0}
+  ToUnlock: {fileID: 1057095228}
 --- !u!1 &425699254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7699,9 +7741,6 @@ MonoBehaviour:
   - Item: {fileID: 1103678436}
     ItemStat: 2
     LevelToUnlock: 3
-  - Item: {fileID: 279753697}
-    ItemStat: 3
-    LevelToUnlock: 1
   - Item: {fileID: 402709472}
     ItemStat: 1
     LevelToUnlock: 1
@@ -7720,6 +7759,15 @@ MonoBehaviour:
   - Item: {fileID: 1305491040}
     ItemStat: 2
     LevelToUnlock: 1
+  - Item: {fileID: 411563933}
+    ItemStat: 3
+    LevelToUnlock: 1
+  - Item: {fileID: 968050415}
+    ItemStat: 3
+    LevelToUnlock: 2
+  - Item: {fileID: 231244227}
+    ItemStat: 1
+    LevelToUnlock: 2
   Credits: {fileID: 1439371770}
 --- !u!1 &695180617
 GameObject:
@@ -10605,7 +10653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &952399110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10835,7 +10883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &968050416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10854,10 +10902,10 @@ RectTransform:
   m_Father: {fileID: 1587245081}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 182.05}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 104, y: -108.025}
+  m_SizeDelta: {x: 192, y: 182.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968050417
 MonoBehaviour:
@@ -10872,10 +10920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 2
-  LevelToUnlock: 0
+  LevelToUnlock: -1
   Cost: 1150
   givePercent: 0.07
-  ToUnlock: {fileID: 0}
+  ToUnlock: {fileID: 802739553}
 --- !u!114 &968050418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13876,7 +13924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1305491041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13895,10 +13943,10 @@ RectTransform:
   m_Father: {fileID: 1587245081}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 182.05}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 104, y: -516.325}
+  m_SizeDelta: {x: 192, y: 182.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305491042
 MonoBehaviour:
@@ -13913,10 +13961,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 1
-  LevelToUnlock: 0
+  LevelToUnlock: -1
   Cost: 1500
   givePercent: 0.04
-  ToUnlock: {fileID: 0}
+  ToUnlock: {fileID: 558866822}
 --- !u!114 &1305491043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16764,7 +16812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 335.33008}
+  m_AnchoredPosition: {x: 0, y: 0.0005187988}
   m_SizeDelta: {x: 208, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1587245082

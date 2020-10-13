@@ -27,7 +27,9 @@ public class ShopItem : MonoBehaviour
         if(Cost <= DataHandler.Money)
         {
             DataHandler.Money -= Cost;
-            GameManager.instance.UnlockItem(stat, LevelToUnlock);
+
+            if(LevelToUnlock >= 0)
+                GameManager.instance.UnlockItem(stat, LevelToUnlock);
 
             //SpriteToUnlock.SetActive(true);
             this.GetComponentInChildren<Button>().interactable = false;

@@ -35,7 +35,7 @@ MonoBehaviour:
   - stat: 1
     InitialValue: 0.8
     Choices:
-    - IsUnlocked: 1
+    - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.15
       ChoiceText: Watch Something

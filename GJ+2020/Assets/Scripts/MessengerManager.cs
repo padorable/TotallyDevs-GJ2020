@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class UpdateMessages : UnityEvent<List<Chat>> { }
 
@@ -66,11 +67,43 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowMessagesAndChat(MessageChat chat, int cost)
     {
-        OnlineImage.color = DataHandler.Relationships.Find(x => x.Name == chat.Name).IsOnline ? Color.green : Color.grey;
+        Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
+        OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
 
         Viewport.offsetMin = new Vector2(4, 58);
         ChatBox.SetActive(true);
         ChatBox.GetComponent<Button>().interactable = GameManager.instance.ActionPoints >= cost;
+
+        EventTrigger e = ChatBox.GetComponent<EventTrigger>();
+        if (e == null) e = ChatBox.AddComponent<EventTrigger>();
+
+        e.triggers.Clear();
+
+        EventTrigger.Entry entry = new EventTrigger.Entry
+        {
+            eventID = EventTriggerType.PointerEnter,
+            callback = new EventTrigger.TriggerEvent()
+        };
+        float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[r.Level].MeterFill;
+        entry.callback.AddListener((data) =>
+        {
+            StatHandler.instance.ReturnAssistBar();
+            StatHandler.instance.SetStat(Stat.Social);
+            StatHandler.instance.SetAssistBar(DataHandler.Social + toFill);
+        });
+
+        e.triggers.Add(entry);
+        entry = new EventTrigger.Entry
+        {
+            eventID = EventTriggerType.PointerExit,
+            callback = new EventTrigger.TriggerEvent()
+        };
+
+        entry.callback.AddListener((data) => StatHandler.instance.ReturnAssistBar());
+
+        e.triggers.Add(entry);
+
+
         CurrentMessaging = chat;
         SetMessageBoxes();
         ChatBoxHeart.SetActive(true);
