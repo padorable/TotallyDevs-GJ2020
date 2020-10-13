@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class ChoicesDialogue : MonoBehaviour
 {
     List<GameObject> Choices = new List<GameObject>();
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -62,14 +63,17 @@ public class ChoicesDialogue : MonoBehaviour
             e.triggers.Add(entry);
 
             Button b = Choices[i].GetComponent<Button>();
+            int d = i;
             b.interactable = true;
             b.onClick.RemoveAllListeners();
             b.onClick.AddListener(() => {
                 StatHandler.instance.SetBar(current + toAdd);
-                SetChoices(type);
                 GameManager.instance.ActionPoints -= c.APCost;
-                Debug.Log(GameManager.instance.ActionPoints);
-                DialogueManager.instance.SetDialogue("...");
+                ActionDone.instance.DoAction(type, d);
+
+                if (type == Stat.Nourishment)
+                    GameManager.instance.UseItem(type, d);
+
             });
         }
     }

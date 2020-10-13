@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopUnlock : MonoBehaviour
 {
     public List<LockedItems> Locked;
-    public UnityEngine.UI.Text Credits;
+    public Text Credits;
+
     public void checkItems()
     {
         foreach(Relationship r in DataHandler.Relationships)
@@ -25,6 +27,11 @@ public class ShopUnlock : MonoBehaviour
     private void Update()
     {
         Credits.text = "Credits: " + DataHandler.Money;
+    }
+
+    public void ScrollToTop()
+    {
+        transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
     }
 }
 

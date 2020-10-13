@@ -21,14 +21,17 @@ MonoBehaviour:
       APCost: 0
       MeterFill: 0.2
       ChoiceText: 
+      Amount: 0
     - IsUnlocked: 0
       APCost: 0
       MeterFill: 0.3
       ChoiceText: 
+      Amount: 0
     - IsUnlocked: 0
       APCost: 0
       MeterFill: 0.4
       ChoiceText: 
+      Amount: 0
   - stat: 1
     InitialValue: 0.8
     Choices:
@@ -36,14 +39,17 @@ MonoBehaviour:
       APCost: 1
       MeterFill: 0.15
       ChoiceText: Watch Something
+      Amount: 1
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25
       ChoiceText: Play Video Games
+      Amount: 0
     - IsUnlocked: 0
       APCost: 2
       MeterFill: 0.6
       ChoiceText: Play with Pet
+      Amount: 0
   - stat: 2
     InitialValue: 0.8
     Choices:
@@ -51,31 +57,37 @@ MonoBehaviour:
       APCost: 1
       MeterFill: 0.15
       ChoiceText: Exercise on your own
+      Amount: 1
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25
       ChoiceText: Exercising with Online Trainer
+      Amount: 0
     - IsUnlocked: 0
       APCost: 2
       MeterFill: 0.6
       ChoiceText: Exercising with Home Set-Up
+      Amount: 0
   - stat: 3
     InitialValue: 0.8
     Choices:
-    - IsUnlocked: 1
+    - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.15
       ChoiceText: Ramen
+      Amount: 0
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25
       ChoiceText: Bacon/Egg + Seasonings
+      Amount: 0
     - IsUnlocked: 0
       APCost: 2
       MeterFill: 0.6
       ChoiceText: Bento/Chicke + Seasonings
+      Amount: 0
   Relationships:
-  - Name: Friend
+  - Name: Clove
     Level: 0
     IsOnline: 1
     LastWeekTalkedTo: -2
@@ -87,7 +99,7 @@ MonoBehaviour:
       LevelToUnlock: 2
     - stat: 2
       LevelToUnlock: 3
-  - Name: Parent
+  - Name: Sam_Mom
     Level: 0
     IsOnline: 1
     LastWeekTalkedTo: -2
@@ -99,7 +111,7 @@ MonoBehaviour:
       LevelToUnlock: 2
     - stat: 3
       LevelToUnlock: 3
-  - Name: Sibling
+  - Name: Britney
     Level: 0
     IsOnline: 1
     LastWeekTalkedTo: -2
