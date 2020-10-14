@@ -26,7 +26,11 @@ public class ShopItem : MonoBehaviour
 
     public void Refresh()
     {
+        if (LevelToUnlock < 0 || LevelToUnlock >= 3) return;
+
         ChoicesValue s = GameManager.instance.Data.GetDataValue(stat).Choices[LevelToUnlock];
+        if (s == null) return;
+
         if (s.IsUnlocked && s.Amount == 0 && !HasBoughtToday)
         {
             buttonText.text = "Buy " + Cost;

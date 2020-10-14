@@ -68,6 +68,7 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowMessagesAndChat(MessageChat chat, int cost)
     {
+        Debug.Log(cost.ToString());
         Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
         Viewport.offsetMin = new Vector2(4, 58);
@@ -134,6 +135,8 @@ public class MessengerManager : MonoBehaviour
     {
         Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
+
+        Debug.Log("Is Online?: " + r.IsOnline);
         Viewport.offsetMin = new Vector2(4, 30);
         ChatBox.SetActive(false);
         CurrentMessaging = chat;
@@ -216,7 +219,7 @@ public class MessengerManager : MonoBehaviour
     {
         if (GameManager.instance.IsDanger)
         {
-            if (GameManager.instance.StatInDanger(Stat.Social))
+            if (!GameManager.instance.StatInDanger(Stat.Social))
             {
                 DialogueManager.instance.SetDialogue("I don't feel like doing this...");
                 return;

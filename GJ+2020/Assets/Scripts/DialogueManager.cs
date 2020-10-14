@@ -32,7 +32,16 @@ public class DialogueManager : MonoBehaviour
 
         this.transform.GetChild(1).gameObject.SetActive(false);
 
-        StartCoroutine(typing(text));
+        StartCoroutine(typing(text, true));
+    }
+
+    public void SetDialogueNoBlock(string text)
+    {
+        this.transform.GetChild(0).gameObject.SetActive(true);
+
+        this.transform.GetChild(1).gameObject.SetActive(false);
+
+        StartCoroutine(typing(text, false));
     }
 
     public void SetTextToDefault()
@@ -47,9 +56,11 @@ public class DialogueManager : MonoBehaviour
         this.transform.GetChild(1).GetComponent<ChoicesDialogue>().SetChoices(type);
     }
 
-    IEnumerator typing(string dialogue)
+    IEnumerator typing(string dialogue, bool willBlock)
     {
-        WallObject.SetActive(true);
+        if(willBlock)
+            WallObject.SetActive(true);
+
         running = true;
         string start = "<color=#ffffffff>";
         string middle = "</color><color=#ffffff00>";
@@ -66,14 +77,16 @@ public class DialogueManager : MonoBehaviour
         }
         textRenderer.text = "<color=#ffffffff>" + dialogue + "</color>";
         running = false;
-        WallObject.SetActive(false);
+
+        if (willBlock)
+            WallObject.SetActive(false);
     }
 
     IEnumerator typingMany(List<string> dialogues)
     {
         for(int i = 0; i < dialogues.Count; i++)
         {
-            Coroutine e = StartCoroutine(typing(dialogues[i]));
+            Coroutine e = StartCoroutine(typing(dialogues[i], true));
             yield return new WaitUntil(() => !running);
             
         }

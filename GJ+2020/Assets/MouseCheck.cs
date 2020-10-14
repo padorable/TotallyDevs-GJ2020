@@ -32,7 +32,7 @@ public class MouseCheck : MonoBehaviour
         if(tagged == "Phone")
         {
             if(!isOnPhone)
-                DialogueManager.instance.SetDialogue(". . .");
+                DialogueManager.instance.SetDialogueNoBlock(". . .");
             isOnPhone = true;
         }
         else if (tagged == "World")

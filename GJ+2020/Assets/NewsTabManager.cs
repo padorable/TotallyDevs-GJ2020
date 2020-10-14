@@ -12,7 +12,6 @@ public class NewsTabManager : MonoBehaviour
 
     public void SetNews(NewsTab news)
     {
-        Debug.Log(news.CurrentNews.NewsTitle);
         Title.text = news.CurrentNews.NewsTitle;
 
         Date.text = GameManager.instance.Month(news.NewsWeekReleasedOn, false) + ",\nWeek " + (news.NewsWeekReleasedOn % 4 + 1);

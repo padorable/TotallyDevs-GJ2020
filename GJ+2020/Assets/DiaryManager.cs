@@ -37,6 +37,7 @@ public class DiaryManager : MonoBehaviour
 
             if(index + 1 >= CurrentDiaryEntry.Entries.Count)
             {
+                PhoneManager.instance.InteractButtons(true);
                 CurrentDiaryEntry.IsDoneReading = true;
                 OnFinishedReading?.Invoke();
                 ButtonEntry.SetActive(false);
@@ -66,6 +67,7 @@ public class DiaryManager : MonoBehaviour
         }
         else
         {
+            PhoneManager.instance.InteractButtons(false);
             ButtonEntry.SetActive(true);
             Content.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(0, 36);
             index = -1;

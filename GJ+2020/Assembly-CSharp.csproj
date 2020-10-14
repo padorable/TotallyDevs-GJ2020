@@ -65,6 +65,7 @@
     <Compile Include="Assets\DiaryEntry.cs" />
     <Compile Include="Assets\Scripts\Confirmation.cs" />
     <Compile Include="Assets\NewsManager.cs" />
+    <Compile Include="Assets\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\ShowDate.cs" />
     <Compile Include="Assets\DiaryEntryHolder.cs" />
     <Compile Include="Assets\Scripts\BarHandler.cs" />
@@ -86,12 +87,12 @@
     <Compile Include="Assets\NewsTabManager.cs" />
     <Compile Include="Assets\Scripts\Dialogues.cs" />
     <Compile Include="Assets\Scripts\ChoicesDialogue.cs" />
-    <Compile Include="Assets\TutorialManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\Sounds\SGJ Audio\Audio Credits\! CREDITING THE PRODUCER.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -104,6 +105,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\Sounds\SGJ Audio\Audio Credits\Attributions.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

@@ -3639,11 +3639,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7ccf289a7e15a3949b816505d0917431, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 71e00ea5c671b06429204b8dcdb5b215, type: 3}
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -21283,11 +21283,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BG:
-  - Clip: {fileID: 8300000, guid: 07e23e9a2cf07444180180275d7a0616, type: 3}
-    Volume: 0.2
-  - Clip: {fileID: 8300000, guid: 231990c3c21457040be1c79bc96318b8, type: 3}
-    Volume: 0.2
-  - Clip: {fileID: 8300000, guid: 62ea70149680c7c489f626f2bf969b85, type: 3}
+  - Clip: {fileID: 8300000, guid: 5ce468ddcbdfecc4fa7cc915377e19dd, type: 3}
+    Volume: 0.5
+  - Clip: {fileID: 8300000, guid: 96531c22402f506478606e4f4bd71bf9, type: 3}
+    Volume: 0.1
+  - Clip: {fileID: 8300000, guid: 21b2a3330f0164047878f1f9cd442e7d, type: 3}
     Volume: 0.2
   FX:
   - Clip: {fileID: 8300000, guid: 929bae952dac927469c3c4ef857ed967, type: 3}
