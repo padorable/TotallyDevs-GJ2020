@@ -22,12 +22,19 @@ public class ShowDate : MonoBehaviour
     {
         int w = GameManager.instance.WeekNumber;
         string month = "";
-        switch(Mathf.FloorToInt((float)w/4f))
+
+        if (w < 0)
+            month = "September";
+        else
         {
-            case 0: month = "October"; break;
-            case 1: month = "November"; break;
-            case 2: month = "December"; break;
+            switch (Mathf.FloorToInt((float)w / 4f))
+            {
+                case 0: month = "October"; break;
+                case 1: month = "November"; break;
+                case 2: month = "December"; break;
+            }
         }
-        dateText.text = month + ", Week " + ((w % 4) + 1);
+
+        dateText.text = month + ", Week " + (((w+4) % 4) + 1);
     }
 }

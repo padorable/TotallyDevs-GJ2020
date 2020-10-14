@@ -16,6 +16,7 @@ public class TransitionManager : MonoBehaviour
     public static TransitionManager instance;
 
     public UnityEvent BeforeTransition = new UnityEvent();
+    public UnityEvent BetweenTransition = new UnityEvent();
     public UnityEvent AfterTransition = new UnityEvent();
     private CanvasGroup canvasGroup;
 
@@ -28,6 +29,12 @@ public class TransitionManager : MonoBehaviour
 
         canvasGroup = this.GetComponent<CanvasGroup>();
     }
+
+    private void Start()
+    {
+        GameManager.instance.NewWeek.AddListener(SetDate);
+    }
+
     public void SetDate()
     {
         StartCoroutine(fade());
@@ -35,6 +42,8 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator fade()
     {
+        if(GameManager.instance.WeekNumber < 12)
+            CurrentMonth.transform.parent.parent.gameObject.SetActive(false);
         BeforeTransition?.Invoke();
 
         float duration = .5f, elapsedTime = 0;
@@ -46,19 +55,26 @@ public class TransitionManager : MonoBehaviour
             canvasGroup.alpha = elapsedTime / duration;
             yield return null;
         }
-        CurrentMonth.text = ReturnMonth(GameManager.instance.WeekNumber - 1);
-        NextMonth.text = ReturnMonth(GameManager.instance.WeekNumber);
 
-        CurrentWeek.text = ((GameManager.instance.WeekNumber - 1) % 4 + 1).ToString();
-        NextWeek.text = ((GameManager.instance.WeekNumber ) % 4 + 1).ToString();
 
-        if (((GameManager.instance.WeekNumber) % 4) == 0)
+        BetweenTransition.Invoke();
+
+        if (GameManager.instance.WeekNumber < 12)
         {
-            animator.Play("TransitionAnimation", -1, 0);
-        }
-        else
-        {
-            animator.Play("TransitionWeek", -1, 0);
+            CurrentMonth.text = ReturnMonth(GameManager.instance.WeekNumber - 1);
+            NextMonth.text = ReturnMonth(GameManager.instance.WeekNumber);
+
+            CurrentWeek.text = ((GameManager.instance.WeekNumber + 4 - 1) % 4 + 1).ToString();
+            NextWeek.text = ((GameManager.instance.WeekNumber + 4) % 4 + 1).ToString();
+
+            if (((GameManager.instance.WeekNumber) % 4) == 0)
+            {
+                animator?.Play("TransitionAnimation", -1, 0);
+            }
+            else
+            {
+                animator?.Play("TransitionWeek", -1, 0);
+            }
         }
 
         yield return new WaitForSeconds(1.5f);
@@ -78,6 +94,7 @@ public class TransitionManager : MonoBehaviour
 
     private string ReturnMonth(int week)
     {
+        if (week < 0) return "SEPT";
         switch(Mathf.FloorToInt(week/4))
         {
             case 0: return "OCT";

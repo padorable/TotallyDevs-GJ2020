@@ -23,6 +23,7 @@ public class APHandler : MonoBehaviour
             }
         });
 
-        TextAmount.text = "AP: " + 3;
+        TextAmount.text = "AP: 2";
+        this.GetComponent<Button>().interactable = false;
     }
 }

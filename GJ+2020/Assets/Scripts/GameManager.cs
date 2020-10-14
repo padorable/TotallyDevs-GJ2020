@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public DataManagement Data;
-    private int _weekNumber = 0;
-    private int _actionPoints = 3;
+    private int _weekNumber = -1;
+    private int _actionPoints = 2;
 
     public UnityEvent NewWeek = new UnityEvent();
     public UnityEvent OnChangedActionPoints = new UnityEvent();
@@ -72,25 +72,34 @@ public class GameManager : MonoBehaviour
     {
         NewWeek.AddListener(() =>
         {
-            float p = PercentDone();
-            if(p < .3f)
+            if (WeekNumber >= 12)
             {
-                //bad outcome
-            }
-            else if (p < .5f)
-            {
-                // okay outcome
-            }
-            else
-            {
-                //Good outcome
+                float p = PercentDone();
+                if (p < .3f)
+                {
+                    Entries.instance.ShowButton(1);
+                    //bad outcome
+                }
+                else if (p < .5f)
+                {
+                    Entries.instance.ShowButton(2);
+                    // okay outcome
+                }
+                else
+                {
+                    Entries.instance.ShowButton(3);
+                    //Good outcome
+                }
             }
         });
+
+        TransitionManager.instance.BetweenTransition.AddListener(() => ActionPoints = 3 + (Mathf.FloorToInt((float)WeekNumber / 4f)));
     }
 
     public void NextWeek()
     {
-        if (!MouseCheck.instance.enabled) return;
+        if(MouseCheck.instance != null)
+            if (!MouseCheck.instance.enabled) return;
 
         DataHandler.Mood = Mathf.Max(0, DataHandler.Mood - .2f + DataHandler.MoodBonus);
         DataHandler.Nourishment = Mathf.Max(0, DataHandler.Nourishment - .2f + DataHandler.NourishmentBonus);
@@ -98,8 +107,8 @@ public class GameManager : MonoBehaviour
         DataHandler.Fitness = Mathf.Max(0, DataHandler.Fitness - .2f + DataHandler.FitnessBonus);
 
         WeekNumber++;
-        ActionPoints = 3;
-        DataHandler.Money += 750 * ((float)Mathf.FloorToInt(WeekNumber / 4) + 1);
+        
+        DataHandler.Money += 750 + (1500 * (Mathf.FloorToInt((float)WeekNumber / 4f)));
     }
 
     public string Month(int week, bool shortcut)

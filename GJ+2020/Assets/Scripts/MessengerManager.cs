@@ -30,6 +30,7 @@ public class MessengerManager : MonoBehaviour
 
     public static MessengerManager instance;
     [HideInInspector] public UpdateMessages OnUpdateMessages;
+    [HideInInspector] public UnityEvent OnEndUpdateMessages = new UnityEvent();
 
     private void Awake()
     {
@@ -48,7 +49,6 @@ public class MessengerManager : MonoBehaviour
         {
             if(x == this.gameObject)
             {
-                Debug.Log("AAAAAAA");
                 foreach(RepliableMessageOwner r in PeopleContent.GetComponentsInChildren<RepliableMessageOwner>())
                 {
                     r.CheckIfOnline();
@@ -56,6 +56,7 @@ public class MessengerManager : MonoBehaviour
             }
         });
     }
+
     public void ShowMessages(MessageChat chat)
     {
         Viewport.offsetMin = new Vector2 (4, 30);
@@ -69,7 +70,6 @@ public class MessengerManager : MonoBehaviour
     {
         Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
-        Debug.Log(r.IsOnline);
         Viewport.offsetMin = new Vector2(4, 58);
         ChatBox.SetActive(true);
         ChatBox.GetComponent<Button>().interactable = GameManager.instance.ActionPoints >= cost;
@@ -185,7 +185,9 @@ public class MessengerManager : MonoBehaviour
 
     IEnumerator LiveSend(MessageChat chat)
     {
-        MouseCheck.instance.enabled = false;
+        if(MouseCheck.instance != null)
+            MouseCheck.instance.enabled = false;
+
         PhoneManager.instance.InteractButtons(false);
         CurrentMessaging = chat;
         foreach (Chat c in chat.CurrentChat)
@@ -196,7 +198,12 @@ public class MessengerManager : MonoBehaviour
             Viewport.transform.parent.GetComponent<ScrollRect>().velocity = new Vector2(0, 200f);
         }
         PhoneManager.instance.InteractButtons(true);
-        MouseCheck.instance.enabled = true;
+
+        if (MouseCheck.instance != null)
+            MouseCheck.instance.enabled = true;
+
+        if (OnEndUpdateMessages != null)
+            OnEndUpdateMessages.Invoke();
     }
 
     public void ShowConfirmation()

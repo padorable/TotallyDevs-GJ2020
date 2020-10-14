@@ -1496,7 +1496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &164223476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1510,7 +1510,7 @@ RectTransform:
   m_Children:
   - {fileID: 2061449912}
   m_Father: {fileID: 1749554683}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1563,18 +1563,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1664051522}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: NextWeek
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1826852526}
-        m_TargetAssemblyTypeName: TransitionManager, Assembly-CSharp
-        m_MethodName: SetDate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2746,7 +2734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &262031608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3050,7 +3038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &279753698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3069,10 +3057,10 @@ RectTransform:
   m_Father: {fileID: 1587245081}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 104, y: -117}
+  m_SizeDelta: {x: 192, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279753699
 MonoBehaviour:
@@ -4278,7 +4266,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.5
+    m_LineSpacing: 1
   m_Text: '<color=#ffffff00>Sistine: Gay
 
     Pado: Gayer
@@ -4328,8 +4316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 49.240005}
-  m_SizeDelta: {x: -72, y: -166.72}
+  m_AnchoredPosition: {x: 0, y: 49.800003}
+  m_SizeDelta: {x: -72, y: -165.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395175300
 MonoBehaviour:
@@ -5660,7 +5648,7 @@ MonoBehaviour:
   Type: 1
   TextIfUnavailable: Hmm... I can't do that right now
   Objects:
-  - {fileID: 0}
+  - {fileID: 952399109}
   - {fileID: 1766305056}
   - {fileID: 517427900}
 --- !u!114 &512726615
@@ -7228,7 +7216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 4
 --- !u!222 &631878063
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7637,6 +7625,9 @@ MonoBehaviour:
   ChatBoxPerson: {fileID: 753716429}
   ChatBoxHeart: {fileID: 609869992}
   OnlineImage: {fileID: 242543793}
+  OnEndUpdateMessages:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &669410539
 GameObject:
   m_ObjectHideFlags: 0
@@ -9460,6 +9451,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821533261}
   m_CullTransparentMesh: 0
+--- !u!1 &834168475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834168477}
+  - component: {fileID: 834168476}
+  m_Layer: 0
+  m_Name: MouseCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &834168476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834168475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e086ae016aebf28458912ba8e99617d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &834168477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834168475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 338.40115, y: 39.647438, z: -11.004566}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &836577988
 GameObject:
   m_ObjectHideFlags: 0
@@ -9609,7 +9643,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NOV
+  m_Text: OCT
 --- !u!222 &840691848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10692,7 +10726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &952399110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13333,7 +13367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OCT
+  m_Text: SEP
 --- !u!222 &1234303719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14057,7 +14091,6 @@ GameObject:
   - component: {fileID: 1311470024}
   - component: {fileID: 1311470023}
   - component: {fileID: 1311470022}
-  - component: {fileID: 1311470026}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -14150,18 +14183,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1311470026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311470021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e086ae016aebf28458912ba8e99617d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1316714340
 GameObject:
   m_ObjectHideFlags: 0
@@ -17641,9 +17662,21 @@ MonoBehaviour:
   PrefabEntry: {fileID: 5056477783086102777, guid: 4f60346f9a8d4fd4d8e85d69f3828be3, type: 3}
   CurrentDiaryEntry: {fileID: 0}
   ButtonEntry: {fileID: 495307321}
-  OnEnd:
+  OnFinishedReading:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1664051524}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: NextPhase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1664051521
 GameObject:
   m_ObjectHideFlags: 0
@@ -17654,6 +17687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664051523}
   - component: {fileID: 1664051522}
+  - component: {fileID: 1664051524}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -17697,6 +17731,94 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664051524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664051521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7bef08552db2843b774b0e3a632fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - DialogueText: Quarantine just started, and I have no idea what to do... Might
+      as well write on my diary
+    ToDisable:
+    - {fileID: 164223475}
+    - {fileID: 882878370}
+    - {fileID: 834168475}
+    SetToNotInteractable:
+    - {fileID: 721178370}
+    - {fileID: 512726613}
+    - {fileID: 1406875094}
+    - {fileID: 574281592}
+    - {fileID: 1563971839}
+    - {fileID: 1114411981}
+    ToEnable:
+    - {fileID: 2124294829}
+    SetToInteractable: []
+  - DialogueText: Oh!! I should check on Britney, maybe she knows what to do during
+      this lockdown
+    ToDisable: []
+    SetToNotInteractable: []
+    ToEnable:
+    - {fileID: 164223475}
+    - {fileID: 882878370}
+    SetToInteractable:
+    - {fileID: 1563971839}
+  - DialogueText: Hmm Betflix, what to watc- LIL WITCH GERALDINE!! I've been wanting
+      to start that ever since! I should go get an account in the Shop
+    ToDisable: []
+    SetToNotInteractable: []
+    ToEnable: []
+    SetToInteractable:
+    - {fileID: 574281592}
+  - DialogueText: Ooohh exciting! Gotta go start watching in the TV!
+    ToDisable:
+    - {fileID: 2124294829}
+    SetToNotInteractable: []
+    ToEnable: []
+    SetToInteractable:
+    - {fileID: 512726613}
+  - DialogueText: Oof it's this late already? I gotta go sleep now.
+    ToDisable: []
+    SetToNotInteractable: []
+    ToEnable: []
+    SetToInteractable:
+    - {fileID: 1563971839}
+    - {fileID: 1114411981}
+    - {fileID: 721178370}
+    - {fileID: 512726613}
+    - {fileID: 1406875094}
+  - DialogueText: . . .
+    ToDisable: []
+    SetToNotInteractable: []
+    ToEnable:
+    - {fileID: 834168475}
+    - {fileID: 279753697}
+    SetToInteractable: []
+  - DialogueText: 
+    ToDisable:
+    - {fileID: 164223475}
+    - {fileID: 882878370}
+    SetToNotInteractable:
+    - {fileID: 574281592}
+    - {fileID: 1563971839}
+    - {fileID: 1114411981}
+    - {fileID: 721178370}
+    - {fileID: 512726613}
+    - {fileID: 1406875094}
+    ToEnable:
+    - {fileID: 2124294829}
+    SetToInteractable: []
+  - DialogueText: Game Over!
+    ToDisable: []
+    SetToNotInteractable: []
+    ToEnable: []
+    SetToInteractable: []
 --- !u!1 &1669339136
 GameObject:
   m_ObjectHideFlags: 0
@@ -18147,6 +18269,18 @@ MonoBehaviour:
       - m_Target: {fileID: 402709474}
         m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
         m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1664051524}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: NextPhase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18737,6 +18871,7 @@ RectTransform:
   - {fileID: 802739554}
   - {fileID: 558866823}
   - {fileID: 172351068}
+  - {fileID: 2124294830}
   - {fileID: 164223476}
   m_Father: {fileID: 1311470025}
   m_RootOrder: 1
@@ -19227,6 +19362,9 @@ MonoBehaviour:
   NextWeek: {fileID: 2125735162}
   animator: {fileID: 1554671699}
   BeforeTransition:
+    m_PersistentCalls:
+      m_Calls: []
+  BetweenTransition:
     m_PersistentCalls:
       m_Calls: []
   AfterTransition:
@@ -22100,6 +22238,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119334854}
+  m_CullTransparentMesh: 0
+--- !u!1 &2124294829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124294830}
+  - component: {fileID: 2124294832}
+  - component: {fileID: 2124294831}
+  m_Layer: 5
+  m_Name: Dark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2124294830
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124294829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1749554683}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2124294831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124294829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6392157}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4d05619137daded4eb174fdc0f788375, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2124294832
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124294829}
   m_CullTransparentMesh: 0
 --- !u!1 &2125735160
 GameObject:

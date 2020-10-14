@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11dc4fbad6fade64881fc28fc871fd1e, type: 3}
   m_Name: DataManagement
   m_EditorClassIdentifier: 
-  StartingMoney: 2000
+  StartingMoney: 350
   Data:
   - stat: 0
     InitialValue: 0.8
@@ -61,7 +61,7 @@ MonoBehaviour:
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25
-      ChoiceText: Exercising with Online Trainer
+      ChoiceText: Lift with Online Trainer
       Amount: 0
     - IsUnlocked: 0
       APCost: 2
@@ -89,7 +89,7 @@ MonoBehaviour:
   Relationships:
   - Name: Clove
     Level: 0
-    IsOnline: 1
+    IsOnline: 0
     LastWeekTalkedTo: -2
     MaxLevelReached: 0
     Unlock:
@@ -101,7 +101,7 @@ MonoBehaviour:
       LevelToUnlock: 3
   - Name: Sam_Mom
     Level: 0
-    IsOnline: 1
+    IsOnline: 0
     LastWeekTalkedTo: -2
     MaxLevelReached: 0
     Unlock:
@@ -114,7 +114,7 @@ MonoBehaviour:
   - Name: Britney
     Level: 0
     IsOnline: 1
-    LastWeekTalkedTo: -2
+    LastWeekTalkedTo: -3
     MaxLevelReached: 0
     Unlock:
     - stat: 1

@@ -19,7 +19,7 @@ public class NewsManager : MonoBehaviour
     }
     public void AddNews()
     {
-        if (News.Count - 1 < GameManager.instance.WeekNumber) return;
+        if (News.Count - 1 < GameManager.instance.WeekNumber || GameManager.instance.WeekNumber < 0) return;
         Debug.Log("eh");
         NewsTab obj = Instantiate(TabPrefab);
         obj.OnOpenNews.AddListener(OpenNewsTab);

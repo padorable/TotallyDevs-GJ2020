@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RepliableMessageOwner.cs" />
+    <Compile Include="Assets\MouseCheck.cs" />
     <Compile Include="Assets\ActionDone.cs" />
     <Compile Include="Assets\Scripts\StatHandler.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Assets\Scripts\ShowDate.cs" />
     <Compile Include="Assets\DiaryEntryHolder.cs" />
     <Compile Include="Assets\Scripts\BarHandler.cs" />
+    <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Chatbox.cs" />
     <Compile Include="Assets\Scripts\DataManagement.cs" />
     <Compile Include="Assets\Entries.cs" />
@@ -84,7 +86,7 @@
     <Compile Include="Assets\NewsTabManager.cs" />
     <Compile Include="Assets\Scripts\Dialogues.cs" />
     <Compile Include="Assets\Scripts\ChoicesDialogue.cs" />
-    <Compile Include="Assets\AudioManager.cs" />
+    <Compile Include="Assets\TutorialManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

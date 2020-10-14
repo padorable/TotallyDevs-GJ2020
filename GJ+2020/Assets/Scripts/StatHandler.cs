@@ -41,7 +41,7 @@ public class StatHandler : MonoBehaviour
 
     public void SetBar(float percent)
     {
-        DataHandler.SetStat(CurrentStatToChange,percent);
+        DataHandler.SetStat(CurrentStatToChange, Mathf.Min(percent, 1));
         toChange?.SetBar(percent);
     }
 
