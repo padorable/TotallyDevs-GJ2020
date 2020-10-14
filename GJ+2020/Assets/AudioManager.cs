@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
         source.Play();
         GameManager.instance.NewWeek.AddListener(() =>
         {
-            if (GameManager.instance.WeekNumber % 4 == 0)
+            if (GameManager.instance.WeekNumber % 4 == 0 && GameManager.instance.WeekNumber != 0)
             {
                 index = Mathf.Min(index + 1, BG.Count - 1);
                 StartCoroutine(switchAudio(BG[index]));

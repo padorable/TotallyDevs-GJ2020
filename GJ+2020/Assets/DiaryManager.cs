@@ -11,7 +11,7 @@ public class DiaryManager : MonoBehaviour
     public DiaryEntry CurrentDiaryEntry;
     public GameObject ButtonEntry;
 
-    public UnityEvent OnEnd;
+    public UnityEvent OnFinishedReading;
 
     private int index = -1;
     private List<GameObject> disabled = new List<GameObject>();
@@ -38,7 +38,7 @@ public class DiaryManager : MonoBehaviour
             if(index + 1 >= CurrentDiaryEntry.Entries.Count)
             {
                 CurrentDiaryEntry.IsDoneReading = true;
-                OnEnd?.Invoke();
+                OnFinishedReading?.Invoke();
                 ButtonEntry.SetActive(false);
                 Content.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(0, 6);
             }

@@ -29,7 +29,8 @@ public class Interactable : MonoBehaviour
 
     public void ShowChoices()
     {
-        if (!MouseCheck.instance.enabled) return;
+        if(MouseCheck.instance != null)
+            if (!MouseCheck.instance.enabled) return;
 
         if(IsAvailable())
             DialogueManager.instance.SetChoices(Type);

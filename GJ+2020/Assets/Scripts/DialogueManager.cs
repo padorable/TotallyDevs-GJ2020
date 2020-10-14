@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
     private Text textRenderer;
 
     [SerializeField] private string defaultText = "Dev: ...";
-
     private bool running = false;
 
     private void Awake()
@@ -74,13 +73,6 @@ public class DialogueManager : MonoBehaviour
             Coroutine e = StartCoroutine(typing(dialogues[i]));
             yield return new WaitUntil(() => !running);
             
-        }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SetDialogue("this is a test if it will work");
         }
     }
 }
