@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public List<AudioVolume> BG; public List<AudioVolume> FX;
-    private AudioSource source;
+    public AudioSource source;
 
     public static AudioManager instance;
 
@@ -23,19 +23,23 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        source.clip = BG[0].Clip;
-        source.volume = BG[0].Volume;
+        source.clip = BG[6].Clip;
+        source.volume = BG[6].Volume;
         source.Play();
         GameManager.instance.NewWeek.AddListener(() =>
         {
+            PlayFX(5);
             if (GameManager.instance.WeekNumber % 4 == 0 && GameManager.instance.WeekNumber != 0)
             {
-                index = Mathf.Min(index + 1, BG.Count - 1);
-                StartCoroutine(switchAudio(BG[index]));
+                if (GameManager.instance.WeekNumber != 12)
+                {
+                    index = Mathf.Min(index + 1, BG.Count - 1);
+                    StartCoroutine(switchAudio(BG[index]));
+                }
             }
         });
 
-        GameManager.instance.OnChangedActionPoints.AddListener(() => source.PlayOneShot(FX[1].Clip,FX[1].Volume));
+        //GameManager.instance.OnChangedActionPoints.AddListener(() => source.PlayOneShot(FX[1].Clip,FX[1].Volume));
     }
 
     IEnumerator switchAudio(AudioVolume clip)
@@ -61,9 +65,14 @@ public class AudioManager : MonoBehaviour
         source.Play();
     }
 
-    public void playfx(int i)
+    public void PlayFX(int i)
     {
         AudioSource.PlayClipAtPoint(FX[i].Clip, Vector3.zero,FX[i].Volume);
+    }
+
+    public void PlayBG(int i)
+    {
+        StartCoroutine(switchAudio(BG[i]));
     }
 }
 

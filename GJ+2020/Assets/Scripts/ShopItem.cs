@@ -42,6 +42,7 @@ public class ShopItem : MonoBehaviour
     {
         if(Cost <= DataHandler.Money)
         {
+            AudioManager.instance.PlayFX(6);
             DataHandler.Money -= Cost;
 
             if(LevelToUnlock >= 0)

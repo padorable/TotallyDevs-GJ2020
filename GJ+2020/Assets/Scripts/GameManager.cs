@@ -85,22 +85,39 @@ public class GameManager : MonoBehaviour
                 if (good == 4)
                 {
                     // Good Outcome
+                    AudioManager.instance.PlayBG(5);
                     Entries.instance.ShowButton(3);
                 }
                 else if (normal >= 3)
                 {
                     // Normal Outcome
+                    AudioManager.instance.PlayBG(4);
                     Entries.instance.ShowButton(2);
                 }
                 else
                 {
                     // Bad Outcome
+                    AudioManager.instance.PlayBG(3);
                     Entries.instance.ShowButton(1);
                 }
             }
         });
 
-        TransitionManager.instance.BetweenTransition.AddListener(() => ActionPoints = 3 + (Mathf.FloorToInt((float)WeekNumber / 4f)));
+        TransitionManager.instance.BetweenTransition.AddListener(RefillActionPoints);
+    }
+
+    public void DecreaseActionPoints(int i)
+    {
+        ActionPoints -= i;
+        if (ActionPoints > 0)
+            AudioManager.instance.PlayFX(4);
+        else
+            AudioManager.instance.PlayFX(3);
+    }
+
+    public void RefillActionPoints()
+    {
+        ActionPoints = 3 + (Mathf.FloorToInt((float)WeekNumber / 4f));
     }
 
     public void NextWeek()
@@ -118,6 +135,7 @@ public class GameManager : MonoBehaviour
                 {
                     continue;
                 }
+
                 DataHandler.AddStat(s, DataHandler.GetBonus(s) - .2f);
             }
         }
@@ -215,5 +233,10 @@ public class GameManager : MonoBehaviour
             }
             WeekNumber = 12;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

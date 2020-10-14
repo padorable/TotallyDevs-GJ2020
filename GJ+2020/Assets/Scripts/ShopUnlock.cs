@@ -15,6 +15,7 @@ public class ShopUnlock : MonoBehaviour
         {
             if (x != this.gameObject) return;
 
+            AudioManager.instance.PlayFX(6);
             foreach(ShopItem item in Content.GetComponentsInChildren<ShopItem>())
             {
                 if(item.gameObject.activeSelf)

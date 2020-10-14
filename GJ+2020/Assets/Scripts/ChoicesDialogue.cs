@@ -76,7 +76,7 @@ public class ChoicesDialogue : MonoBehaviour
             b.onClick.RemoveAllListeners();
             b.onClick.AddListener(() => {
                 StatHandler.instance.SetBar(current + toAdd);
-                GameManager.instance.ActionPoints -= c.APCost;
+                GameManager.instance.DecreaseActionPoints(c.APCost);
                 ActionDone.instance.DoAction(type, d);
 
                 if (type == Stat.Nourishment)

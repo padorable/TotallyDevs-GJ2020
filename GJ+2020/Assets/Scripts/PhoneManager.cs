@@ -15,6 +15,7 @@ public class PhoneManager : MonoBehaviour
     [Space]
     public GameObject LockScreen;
     public GameObject HomeScreen;
+    public GameObject StartGameScreen;
     public GameObject Buttons;
 
     public static PhoneManager instance;
@@ -29,22 +30,16 @@ public class PhoneManager : MonoBehaviour
         else if (instance != null)
             Destroy(this);
 
-        CurrentScreen = LockScreen;
+        CurrentScreen = StartGameScreen;
         foreach(CanvasGroup g in this.GetComponentsInChildren<CanvasGroup>())
         {
-            if(g.gameObject != CurrentScreen)
+            if(g.gameObject != StartGameScreen)
             {
                 g.interactable = false;
                 g.blocksRaycasts = false;
                 g.alpha = 0;
             }
         }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            LockPhone();
     }
 
     private void Start()
@@ -108,6 +103,7 @@ public class PhoneManager : MonoBehaviour
         NextScreen = HomeScreen;
         StartCoroutine(FadeToNext());
         Buttons.SetActive(true);
+        AudioManager.instance.PlayFX(1);
     }
 
     public void Back()
@@ -129,13 +125,13 @@ public class PhoneManager : MonoBehaviour
         PreviouslyVisitedScreens.Clear();
         NextScreen = HomeScreen;
         StartCoroutine(FadeToNext());
+        AudioManager.instance.PlayFX(0);
     }
 
     public void InteractButtons(bool a)
     {
         foreach(Button b in Buttons.GetComponentsInChildren<Button>())
         {
-            Debug.Log("a");
             b.interactable = a;
         }
     }

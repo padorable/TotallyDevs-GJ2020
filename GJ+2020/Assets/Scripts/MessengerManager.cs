@@ -50,10 +50,15 @@ public class MessengerManager : MonoBehaviour
             if(x == this.gameObject)
             {
                 RepliableMessageOwner[] messagers = PeopleContent.GetComponentsInChildren<RepliableMessageOwner>();
+                bool isOnline = false;
                 foreach (RepliableMessageOwner r in messagers)
                 {
                     r.CheckIfOnline();
+                    if (r.currentPerson.IsOnline) isOnline = true;
                 }
+
+                if (isOnline)
+                    AudioManager.instance.PlayFX(10);
             }
         });
     }
@@ -69,7 +74,7 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowMessagesAndChat(MessageChat chat, int cost)
     {
-        Debug.Log(cost.ToString());
+        AudioManager.instance.source.PlayOneShot(chat.FXSound);
         Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
         Viewport.offsetMin = new Vector2(4, 58);
@@ -134,6 +139,7 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowMessagesAndHeartOnly(MessageChat chat)
     {
+        AudioManager.instance.source.PlayOneShot(chat.FXSound);
         Relationship r = DataHandler.Relationships.Find(x => x.Name == chat.Name);
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
 

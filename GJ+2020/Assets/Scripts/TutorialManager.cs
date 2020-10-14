@@ -11,7 +11,6 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        RunPhase();
         TransitionManager.instance.BetweenTransition.AddListener(() =>
         {
             if(GameManager.instance.WeekNumber == 0 || GameManager.instance.WeekNumber >= 12)

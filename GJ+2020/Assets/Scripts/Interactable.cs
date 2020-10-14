@@ -36,10 +36,13 @@ public class Interactable : MonoBehaviour
         {
             if (GameManager.instance.StatInDanger(Type))
             {
-                if(IsAvailable())
+                if (IsAvailable())
                     DialogueManager.instance.SetChoices(Type);
                 else
+                {
                     DialogueManager.instance.SetDialogue(TextIfUnavailable);
+                    AudioManager.instance.PlayFX(2);
+                }
             }
             else
                 DialogueManager.instance.SetDialogue("I don't feel like doing this...");

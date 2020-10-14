@@ -23,6 +23,7 @@ public class ActionDone : MonoBehaviour
     public void DoAction(Stat t, int l)
     {
         ActionPicture ap = pictures.Find((x) => x.type == t && x.level == l);
+        AudioManager.instance.source.PlayOneShot(ap.clip);
         DialogueManager.instance.SetDialogue(ap.Dialogue[Mathf.FloorToInt(GameManager.instance.WeekNumber/4)]);
         StartCoroutine(a(ap));
     }
@@ -81,6 +82,7 @@ public class ActionPicture
 {
     public Stat type;
     public int level;
+    public AudioClip clip;
 
     public List<Sprite> sprites;
     public List<string> Dialogue;

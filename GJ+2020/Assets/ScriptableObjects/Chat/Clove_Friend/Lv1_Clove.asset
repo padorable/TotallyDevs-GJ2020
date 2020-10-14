@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Clove
   Picture: {fileID: 21300000, guid: 9ca2ae8521e04204f8042596817025d6, type: 3}
+  FXSound: {fileID: 8300000, guid: 96dd33969e915a84e86ff7b0fdbdb619, type: 3}
   CurrentChat:
   - isMe: 0
     Message: guuuurl

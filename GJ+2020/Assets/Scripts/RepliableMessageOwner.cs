@@ -41,7 +41,7 @@ public class RepliableMessageOwner : MessageOwner
             currentPerson.LastWeekTalkedTo = GameManager.instance.WeekNumber;
             currentPerson.IsOnline = false;
             PreviousChat.CurrentChat.AddRange(x);
-            GameManager.instance.ActionPoints -= cost;
+            GameManager.instance.DecreaseActionPoints(cost);
 
             StatHandler.instance.SetStat(Stat.Social);
             float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].MeterFill;

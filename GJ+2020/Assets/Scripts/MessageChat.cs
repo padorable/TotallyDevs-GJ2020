@@ -7,6 +7,7 @@ public class MessageChat : ScriptableObject
 {
     public string Name;
     public Sprite Picture;
+    public AudioClip FXSound;
     public List<Chat> CurrentChat;
 }
 

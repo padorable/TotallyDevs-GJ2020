@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class APHandler : MonoBehaviour
 {
     public Text TextAmount;
+    public Sprite NeutralImage;
+    public Sprite EndImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +15,13 @@ public class APHandler : MonoBehaviour
         {
             if (GameManager.instance.ActionPoints > 0)
             {
+                this.GetComponent<Image>().sprite = NeutralImage;
                 TextAmount.text = "AP: " + GameManager.instance.ActionPoints;
                 this.GetComponent<Button>().interactable = false;
             }
             else
             {
+                this.GetComponent<Image>().sprite = EndImage;
                 TextAmount.text = "END WEEK";
                 this.GetComponent<Button>().interactable = true;
             }

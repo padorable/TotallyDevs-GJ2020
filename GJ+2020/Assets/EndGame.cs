@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class EndGame : MonoBehaviour
 {
+
+    bool isStart = true;
+
     private void OnEnable()
     {
         StartCoroutine(FadeIn());
@@ -12,16 +15,26 @@ public class EndGame : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        yield return new WaitForSeconds(3.0f);
+        if(!isStart)
+            yield return new WaitForSeconds(3.0f);
 
         Image image = GetComponent<Image>();
+        Debug.Log("A");
+        float elapsedTime = 0, duration = 0;
+        if (isStart)
+            duration = 1.5f;
+        else
+            duration = 5f;
 
-        float elapsedTime = 0, duration = 5.0f;
         while (elapsedTime < duration)
         {
             elapsedTime = Mathf.Min((elapsedTime + Time.deltaTime), duration);
             Color c = image.color;
-            c.a = elapsedTime / duration;
+
+            if (isStart)
+                c.a = 1 - (elapsedTime / duration);
+            else
+                c.a = elapsedTime / duration;
 
             image.color = c;
 
@@ -29,6 +42,12 @@ public class EndGame : MonoBehaviour
         }
         yield return null;
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        if(!isStart)
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        else
+        {
+            isStart = false;
+            this.gameObject.SetActive(false);
+        }
     }
 }

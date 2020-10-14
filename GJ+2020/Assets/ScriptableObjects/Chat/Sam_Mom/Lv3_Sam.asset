@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sam_Mom
   Picture: {fileID: 21300000, guid: 83e6dd4ef6510574d9554eeca24342c5, type: 3}
+  FXSound: {fileID: 8300000, guid: 54c19546e968a204880558c31e4ed1c2, type: 3}
   CurrentChat:
   - isMe: 1
     Message: hey mom. i LOOOOOVE the new go-to dish. sublime. magnificent.
