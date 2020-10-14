@@ -10,6 +10,7 @@ public class Chatbox : MonoBehaviour
     public RectTransform MessageBox;
     public Image picture;
     Vector2 initSize;
+    const int LengthOfTextToAdjust = 26;
     private void Awake()
     {
         initSize = MessageBox.sizeDelta;
@@ -31,6 +32,7 @@ public class Chatbox : MonoBehaviour
 
         }
         Message.text = chat.Message;
-        MessageBox.sizeDelta = initSize * new Vector2(1,chat.Length);
+        float size = Mathf.FloorToInt((float)chat.Message.Length / (float)LengthOfTextToAdjust) + 1;
+        MessageBox.sizeDelta = initSize * new Vector2(1, size);
     }
 }

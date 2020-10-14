@@ -23,6 +23,9 @@ public class BarHandler : MonoBehaviour
     private Coroutine currentCoroutine;
     public Stat CurrentStat;
 
+    public Color SafeMeter;
+    public Color AlertMeter;
+
     private void Awake()
     {
         barAssist = this.transform.GetChild(1).GetComponent<Image>();
@@ -30,15 +33,28 @@ public class BarHandler : MonoBehaviour
         Debug.Log(bar);
     }
 
-    IEnumerator moveBar(Image bar, float percent)
+    IEnumerator moveBar(Image b, float percent)
     {
         elapsedTime = 0;
-        float initialPercent = bar.fillAmount;
+        float initialPercent = b.fillAmount;
 
         while(elapsedTime < duration)
         {
             elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, duration);
-            bar.fillAmount = Mathf.Lerp(initialPercent, percent, elapsedTime / duration);
+            b.fillAmount = Mathf.Lerp(initialPercent, percent, elapsedTime / duration);
+
+            if (b == bar)
+            {
+                if (b.fillAmount < .34)
+                {
+                    b.color = AlertMeter;
+                }
+                else
+                {
+                    b.color = SafeMeter;
+                }
+            }
+
             yield return null;
         }
     }
@@ -54,6 +70,8 @@ public class BarHandler : MonoBehaviour
 
     public void SetBar(float percent)
     {
+        if (!this.gameObject.activeSelf) return;
+
         barAssist.fillAmount = percent;
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);

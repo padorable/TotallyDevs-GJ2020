@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class ActionDone : MonoBehaviour
 {
-
     public static ActionDone instance;
 
     public List<ActionPicture> pictures;
     public Image img;
+
+    public GameObject WallObject;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,7 +18,6 @@ public class ActionDone : MonoBehaviour
             instance = this;
         else
             Destroy(this);
-
     }
 
     public void DoAction(Stat t, int l)
@@ -29,6 +29,9 @@ public class ActionDone : MonoBehaviour
 
     IEnumerator fade(bool fadeIn)
     {
+        if (fadeIn)
+            WallObject.SetActive(true);
+
         float d = .4f, b = 0;
         Color c = img.color;
         while (b < d)
@@ -41,6 +44,8 @@ public class ActionDone : MonoBehaviour
             img.color = c;
             yield return null;
         }
+        if(!fadeIn)
+            WallObject.SetActive(false);
     }
 
     IEnumerator a(ActionPicture ap)

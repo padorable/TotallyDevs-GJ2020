@@ -42,8 +42,9 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator fade()
     {
-        if(GameManager.instance.WeekNumber < 12)
+        if(GameManager.instance.WeekNumber >= 12)
             CurrentMonth.transform.parent.parent.gameObject.SetActive(false);
+
         BeforeTransition?.Invoke();
 
         float duration = .5f, elapsedTime = 0;
@@ -94,7 +95,7 @@ public class TransitionManager : MonoBehaviour
 
     private string ReturnMonth(int week)
     {
-        if (week < 0) return "SEPT";
+        if (week < 0) return "SEP";
         switch(Mathf.FloorToInt(week/4))
         {
             case 0: return "OCT";

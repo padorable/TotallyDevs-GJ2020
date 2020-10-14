@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private string defaultText = "Dev: ...";
     private bool running = false;
+    public GameObject WallObject;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator typing(string dialogue)
     {
+        WallObject.SetActive(true);
         running = true;
         string start = "<color=#ffffffff>";
         string middle = "</color><color=#ffffff00>";
@@ -64,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         }
         textRenderer.text = "<color=#ffffffff>" + dialogue + "</color>";
         running = false;
+        WallObject.SetActive(false);
     }
 
     IEnumerator typingMany(List<string> dialogues)
