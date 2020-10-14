@@ -33,6 +33,14 @@ public class Entries : MonoBehaviour
             holder.transform.SetParent(Content.transform);
             holder.transform.localScale = Vector3.one;
             ButtonObject.SetActive(false);
+
+            if (GameManager.instance.WeekNumber >= 12)
+            {
+                holder.OnOpen.AddListener(() =>
+                {
+                    EndingImage.instance.ShowImage(n - 1);
+                });
+            }
         });
     }
 }

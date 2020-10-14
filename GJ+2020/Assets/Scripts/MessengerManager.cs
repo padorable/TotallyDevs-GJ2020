@@ -49,7 +49,8 @@ public class MessengerManager : MonoBehaviour
         {
             if(x == this.gameObject)
             {
-                foreach(RepliableMessageOwner r in PeopleContent.GetComponentsInChildren<RepliableMessageOwner>())
+                RepliableMessageOwner[] messagers = PeopleContent.GetComponentsInChildren<RepliableMessageOwner>();
+                foreach (RepliableMessageOwner r in messagers)
                 {
                     r.CheckIfOnline();
                 }
@@ -184,7 +185,7 @@ public class MessengerManager : MonoBehaviour
         }
 
         activeObjects.Add(obj);
-        obj.GetComponent<Chatbox>().SetMessage(chat);
+        obj.GetComponent<Chatbox>().SetMessage(chat, CurrentMessaging.Picture);
     }
 
     public void NewMessages(MessageChat chat)

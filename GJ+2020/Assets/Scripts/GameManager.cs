@@ -70,27 +70,32 @@ public class GameManager : MonoBehaviour
         {
             if (WeekNumber >= 12)
             {
+                int good = 0, normal = 0;
                 Stat[] stats = { Stat.Nourishment, Stat.Mood, Stat.Fitness, Stat.Social };
                 foreach (Stat s in stats)
                 {
-                    DataHandler.SetStat(s, 1);
+                    int o = Mathf.FloorToInt(DataHandler.GetPercent(s) * 100);
+                    if (o > 60)
+                        good++;
+                    if (o > 40)
+                        normal++;
                 };
 
                 float p = PercentDone();
-                if (p < .3f)
+                if (good == 4)
                 {
-                    Entries.instance.ShowButton(1);
-                    //bad outcome
+                    // Good Outcome
+                    Entries.instance.ShowButton(3);
                 }
-                else if (p < .5f)
+                else if (normal >= 3)
                 {
+                    // Normal Outcome
                     Entries.instance.ShowButton(2);
-                    // okay outcome
                 }
                 else
                 {
-                    Entries.instance.ShowButton(3);
-                    //Good outcome
+                    // Bad Outcome
+                    Entries.instance.ShowButton(1);
                 }
             }
         });
@@ -103,14 +108,24 @@ public class GameManager : MonoBehaviour
         if(MouseCheck.instance != null)
             if (!MouseCheck.instance.enabled) return;
         Stat[] stats = { Stat.Mood, Stat.Nourishment, Stat.Social, Stat.Fitness };
-        foreach(Stat s in stats)
+
+        if (WeekNumber < 12)
         {
-            DataHandler.AddStat(s, DataHandler.GetBonus(s) - .2f);
+            foreach (Stat s in stats)
+            {
+                Debug.Log(DataHandler.GetPercent(s));
+                if (Mathf.FloorToInt(DataHandler.GetPercent(s) * 100) <= 35)
+                {
+                    continue;
+                }
+                DataHandler.AddStat(s, DataHandler.GetBonus(s) - .2f);
+            }
         }
 
         WeekNumber++;
         
         DataHandler.Money += 750 + (1500 * (Mathf.FloorToInt((float)WeekNumber / 4f)));
+        DialogueManager.instance.SetDialogue(". . .");
     }
 
     public string Month(int week, bool shortcut)
@@ -164,7 +179,7 @@ public class GameManager : MonoBehaviour
             bool isInDanger = false;
             foreach (DataType dt in DataHandler.DataTypes)
             {
-                if (dt.Meter < .35)
+                if (dt.Meter < .30)
                 {
                     isInDanger = true;
                     break;
@@ -177,5 +192,28 @@ public class GameManager : MonoBehaviour
     public bool StatInDanger(Stat stat)
     {
         return DataHandler.DataTypes.Find(x => x.stat == stat).Meter < .35f;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            WeekNumber = 12;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Stat[] s = { Stat.Fitness, Stat.Mood, Stat.Nourishment, Stat.Social };
+            foreach(Stat a in s)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                    DataHandler.SetStat(a, 1);
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                    DataHandler.SetStat(a, .5f);
+                else
+                    DataHandler.SetStat(a, .35f);
+            }
+            WeekNumber = 12;
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class RepliableMessageOwner : MessageOwner
 {
     public List<MessageChat> Messages;
-    private Relationship currentPerson;
+    public Relationship currentPerson;
 
     private void Start()
     {

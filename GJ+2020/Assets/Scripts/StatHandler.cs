@@ -26,9 +26,9 @@ public class StatHandler : MonoBehaviour
     {
         RefreshBars();
 
-        TransitionManager.instance.AfterTransition.AddListener(()=> 
+        TransitionManager.instance.BetweenTransition.AddListener(()=> 
         {
-            if (GameManager.instance.WeekNumber >= 0)
+            if (GameManager.instance.WeekNumber >= 0 && GameManager.instance.WeekNumber != 12)
                 RefreshBarSlow();
         });
     }
@@ -66,6 +66,7 @@ public class StatHandler : MonoBehaviour
 
     public void RefreshBarSlow()
     {
+        Debug.Log("B");
         foreach (BarHandler h in handlers)
         {
             h.SetBar(DataHandler.GetPercent(h.CurrentStat));

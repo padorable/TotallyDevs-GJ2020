@@ -53,40 +53,42 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RepliableMessageOwner.cs" />
-    <Compile Include="Assets\MouseCheck.cs" />
-    <Compile Include="Assets\ActionDone.cs" />
+    <Compile Include="Assets\Scripts\MouseCheck.cs" />
+    <Compile Include="Assets\Scripts\ActionDone.cs" />
     <Compile Include="Assets\Scripts\StatHandler.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MessengerManager.cs" />
-    <Compile Include="Assets\DiaryManager.cs" />
+    <Compile Include="Assets\Scripts\DiaryManager.cs" />
     <Compile Include="Assets\Scripts\TransitionManager.cs" />
-    <Compile Include="Assets\SpriteChecker.cs" />
-    <Compile Include="Assets\DiaryEntry.cs" />
+    <Compile Include="Assets\Scripts\SpriteChecker.cs" />
+    <Compile Include="Assets\Scripts\DiaryEntry.cs" />
     <Compile Include="Assets\Scripts\Confirmation.cs" />
-    <Compile Include="Assets\NewsManager.cs" />
-    <Compile Include="Assets\TutorialManager.cs" />
+    <Compile Include="Assets\Scripts\NewsManager.cs" />
+    <Compile Include="Assets\Scripts\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\ShowDate.cs" />
-    <Compile Include="Assets\DiaryEntryHolder.cs" />
+    <Compile Include="Assets\Scripts\DiaryEntryHolder.cs" />
     <Compile Include="Assets\Scripts\BarHandler.cs" />
-    <Compile Include="Assets\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Chatbox.cs" />
     <Compile Include="Assets\Scripts\DataManagement.cs" />
-    <Compile Include="Assets\Entries.cs" />
-    <Compile Include="Assets\NewsTab.cs" />
+    <Compile Include="Assets\Scripts\Entries.cs" />
+    <Compile Include="Assets\Scripts\NewsTab.cs" />
     <Compile Include="Assets\Scripts\ShopUnlock.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\PhoneManager.cs" />
     <Compile Include="Assets\Scripts\ShopItem.cs" />
     <Compile Include="Assets\Scripts\DataHandler.cs" />
-    <Compile Include="Assets\APHandler.cs" />
-    <Compile Include="Assets\NewsScriptable.cs" />
-    <Compile Include="Assets\SpecialShopItem.cs" />
+    <Compile Include="Assets\Scripts\APHandler.cs" />
+    <Compile Include="Assets\Scripts\NewsScriptable.cs" />
+    <Compile Include="Assets\Scripts\SpecialShopItem.cs" />
     <Compile Include="Assets\Scripts\MessageChat.cs" />
     <Compile Include="Assets\Scripts\MessageOwner.cs" />
-    <Compile Include="Assets\NewsTabManager.cs" />
+    <Compile Include="Assets\Scripts\NewsTabManager.cs" />
     <Compile Include="Assets\Scripts\Dialogues.cs" />
     <Compile Include="Assets\Scripts\ChoicesDialogue.cs" />
+    <Compile Include="Assets\EndingImage.cs" />
+    <Compile Include="Assets\EndGame.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

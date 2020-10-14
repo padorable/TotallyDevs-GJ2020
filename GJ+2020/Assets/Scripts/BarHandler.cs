@@ -24,6 +24,7 @@ public class BarHandler : MonoBehaviour
     public Stat CurrentStat;
 
     public Color SafeMeter;
+    public Color CautionMeter;
     public Color AlertMeter;
 
     private void Awake()
@@ -45,14 +46,7 @@ public class BarHandler : MonoBehaviour
 
             if (b == bar)
             {
-                if (b.fillAmount < .34)
-                {
-                    b.color = AlertMeter;
-                }
-                else
-                {
-                    b.color = SafeMeter;
-                }
+                SetBarColor(b);
             }
 
             yield return null;
@@ -84,6 +78,8 @@ public class BarHandler : MonoBehaviour
             StopCoroutine(currentCoroutine);
         barAssist.fillAmount = percent;
         bar.fillAmount = percent;
+
+        SetBarColor(bar);
     }
 
     public void ReturnAssistBar()
@@ -94,8 +90,25 @@ public class BarHandler : MonoBehaviour
             StopCoroutine(currentCoroutine);
 
         barAssist.fillAmount = barAssistPercent;
+
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         currentCoroutine = StartCoroutine(moveBar(barAssist, bar.fillAmount));
+    }
+
+    private void SetBarColor(Image bar)
+    {
+        if (bar.fillAmount < .30f)
+        {
+            bar.color = AlertMeter;
+        }
+        else if (bar.fillAmount < .70f)
+        {
+            bar.color = CautionMeter;
+        }
+        else
+        {
+            bar.color = SafeMeter;
+        }
     }
 }

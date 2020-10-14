@@ -79,12 +79,12 @@ MonoBehaviour:
     - IsUnlocked: 0
       APCost: 1
       MeterFill: 0.25
-      ChoiceText: Bacon/Egg + Seasonings
+      ChoiceText: Bacon Egg Rice
       Amount: 0
     - IsUnlocked: 0
       APCost: 2
       MeterFill: 0.6
-      ChoiceText: Bento/Chicke + Seasonings
+      ChoiceText: Actual Proper Meal
       Amount: 0
   Relationships:
   - Name: Clove

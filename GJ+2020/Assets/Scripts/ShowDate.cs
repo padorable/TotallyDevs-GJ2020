@@ -32,9 +32,13 @@ public class ShowDate : MonoBehaviour
                 case 0: month = "October"; break;
                 case 1: month = "November"; break;
                 case 2: month = "December"; break;
+
+                default: month = "December"; break;
             }
         }
-
-        dateText.text = month + ", Week " + (((w+4) % 4) + 1);
+        if (w >= 12)
+            dateText.text = "New Year's Eve";
+        else
+            dateText.text = month + ", Week " + (((w+4) % 4) + 1);
     }
 }

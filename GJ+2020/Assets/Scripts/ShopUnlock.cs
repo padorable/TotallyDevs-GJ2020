@@ -13,11 +13,15 @@ public class ShopUnlock : MonoBehaviour
     {
         PhoneManager.instance.OnOpenNewScreen.AddListener((x) =>
         {
+            if (x != this.gameObject) return;
+
             foreach(ShopItem item in Content.GetComponentsInChildren<ShopItem>())
             {
                 if(item.gameObject.activeSelf)
                     item.Refresh();
             }
+
+            ScrollToTop();
         });
     }
 
@@ -39,7 +43,7 @@ public class ShopUnlock : MonoBehaviour
 
     private void Update()
     {
-        Credits.text = "Credits: " + DataHandler.Money;
+        Credits.text = "BHOPEE Credits: " + DataHandler.Money;
     }
 
     public void ScrollToTop()

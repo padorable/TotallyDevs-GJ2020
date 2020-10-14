@@ -80,7 +80,6 @@ public class DiaryManager : MonoBehaviour
         if (disabled.Count == 0)
         {
             obj = Instantiate(PrefabEntry);
-            obj.GetComponentInChildren<Text>().text = entry.EntryText;
             obj.transform.SetParent(Content.transform);
             obj.transform.localScale = Vector3.one;
             active.Add(obj);
@@ -91,11 +90,15 @@ public class DiaryManager : MonoBehaviour
             obj.SetActive(true);
             disabled.RemoveAt(0);
             active.Add(obj);
+            obj.transform.SetAsLastSibling();
         }
+
+        obj.GetComponentInChildren<Text>().text = entry.EntryText;
         if (initSize == Vector2.zero)
             initSize = obj.GetComponent<RectTransform>().sizeDelta;
 
-        obj.GetComponent<RectTransform>().sizeDelta = initSize * new Vector3(1f, entry.Length);
+        int height = Mathf.Max(2, Mathf.CeilToInt((float)obj.GetComponentInChildren<Text>().text.Length / 35f));
+        obj.GetComponent<RectTransform>().sizeDelta = initSize * new Vector3(1f, height * 0.5f);
     }
     
 }

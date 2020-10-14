@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lv3_Clove
   m_EditorClassIdentifier: 
   Name: Clove
-  Picture: {fileID: 0}
+  Picture: {fileID: 21300000, guid: 9ca2ae8521e04204f8042596817025d6, type: 3}
   CurrentChat:
   - isMe: 1
     Message: hey bestie

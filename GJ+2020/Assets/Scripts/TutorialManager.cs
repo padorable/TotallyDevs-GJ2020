@@ -16,7 +16,6 @@ public class TutorialManager : MonoBehaviour
         {
             if(GameManager.instance.WeekNumber == 0 || GameManager.instance.WeekNumber >= 12)
             {
-                Debug.Log("test");
                 NextPhase();
             }
         });
