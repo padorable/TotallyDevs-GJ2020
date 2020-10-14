@@ -90,7 +90,7 @@ MonoBehaviour:
   - Name: Clove
     Level: 0
     IsOnline: 0
-    LastWeekTalkedTo: -2
+    LastWeekTalkedTo: -3
     MaxLevelReached: 0
     Unlock:
     - stat: 2
@@ -102,7 +102,7 @@ MonoBehaviour:
   - Name: Sam_Mom
     Level: 0
     IsOnline: 0
-    LastWeekTalkedTo: -2
+    LastWeekTalkedTo: -3
     MaxLevelReached: 0
     Unlock:
     - stat: 3

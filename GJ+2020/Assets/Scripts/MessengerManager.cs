@@ -72,36 +72,42 @@ public class MessengerManager : MonoBehaviour
         OnlineImage.color = r.IsOnline ? Color.green : Color.grey;
         Viewport.offsetMin = new Vector2(4, 58);
         ChatBox.SetActive(true);
+
         ChatBox.GetComponent<Button>().interactable = GameManager.instance.ActionPoints >= cost;
 
-        EventTrigger e = ChatBox.GetComponent<EventTrigger>();
-        if (e == null) e = ChatBox.AddComponent<EventTrigger>();
-
-        e.triggers.Clear();
-
-        EventTrigger.Entry entry = new EventTrigger.Entry
+        if (GameManager.instance.ActionPoints >= cost)
         {
-            eventID = EventTriggerType.PointerEnter,
-            callback = new EventTrigger.TriggerEvent()
-        };
-        float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[r.Level].MeterFill;
-        entry.callback.AddListener((data) =>
-        {
-            StatHandler.instance.ReturnAssistBar();
-            StatHandler.instance.SetStat(Stat.Social);
-            StatHandler.instance.SetAssistBar(DataHandler.Social + toFill);
-        });
+            EventTrigger e = ChatBox.GetComponent<EventTrigger>();
+            if (e == null) e = ChatBox.AddComponent<EventTrigger>();
 
-        e.triggers.Add(entry);
-        entry = new EventTrigger.Entry
-        {
-            eventID = EventTriggerType.PointerExit,
-            callback = new EventTrigger.TriggerEvent()
-        };
+            e.triggers.Clear();
 
-        entry.callback.AddListener((data) => StatHandler.instance.ReturnAssistBar());
+            EventTrigger.Entry entry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerEnter,
+                callback = new EventTrigger.TriggerEvent()
+            };
 
-        e.triggers.Add(entry);
+            float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[r.Level].MeterFill;
+
+            entry.callback.AddListener((data) =>
+            {
+                StatHandler.instance.ReturnAssistBar();
+                StatHandler.instance.SetStat(Stat.Social);
+                StatHandler.instance.SetAssistBar(DataHandler.GetPercent(Stat.Social) + toFill);
+            });
+
+            e.triggers.Add(entry);
+            entry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerExit,
+                callback = new EventTrigger.TriggerEvent()
+            };
+
+            entry.callback.AddListener((data) => StatHandler.instance.ReturnAssistBar());
+
+            e.triggers.Add(entry);
+        }
 
         CurrentMessaging = chat;
         SetMessageBoxes();
@@ -208,6 +214,15 @@ public class MessengerManager : MonoBehaviour
 
     public void ShowConfirmation()
     {
+        if (GameManager.instance.IsDanger)
+        {
+            if (GameManager.instance.StatInDanger(Stat.Social))
+            {
+                DialogueManager.instance.SetDialogue("I don't feel like doing this...");
+                return;
+            }
+        }
+
         NewMessages(ToBeAdded);
         OnUpdateMessages.Invoke(ToBeAdded.CurrentChat);
         Viewport.offsetMin = new Vector2(4, 30);

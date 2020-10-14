@@ -50,22 +50,18 @@ public class GameManager : MonoBehaviour
 
         Data = Instantiate(Data);
         DataHandler.Money = Data.StartingMoney;
-        DataHandler.Mood = Data.GetDataValue(Stat.Mood).InitialValue;
-        DataHandler.Nourishment = Data.GetDataValue(Stat.Nourishment).InitialValue;
-        DataHandler.Social = Data.GetDataValue(Stat.Social).InitialValue;
-        DataHandler.Fitness = Data.GetDataValue(Stat.Fitness).InitialValue;
+        Stat[] stats = { Stat.Nourishment, Stat.Mood, Stat.Fitness, Stat.Social };
+        foreach(Stat s in stats)
+        {
+            DataHandler.DataTypes.Add(new DataType
+            {
+                stat = s,
+                Meter = Data.GetDataValue(s).InitialValue,
+                Bonus = 0
+            });
+        };
+
         DataHandler.Relationships = Data.Relationships;
-        //List<Relationship> relationships = new List<Relationship>();
-        //foreach(string a in Data.Relationships)
-        //{
-        //    relationships.Add(new Relationship
-        //    {
-        //        Name = a,
-        //        Level = 0,
-        //        MaxLevelReached = 0
-        //    });
-        //}
-        //DataHandler.Relationships = relationships;
     }
 
     private void Start()
@@ -74,6 +70,12 @@ public class GameManager : MonoBehaviour
         {
             if (WeekNumber >= 12)
             {
+                Stat[] stats = { Stat.Nourishment, Stat.Mood, Stat.Fitness, Stat.Social };
+                foreach (Stat s in stats)
+                {
+                    DataHandler.SetStat(s, 1);
+                };
+
                 float p = PercentDone();
                 if (p < .3f)
                 {
@@ -100,11 +102,11 @@ public class GameManager : MonoBehaviour
     {
         if(MouseCheck.instance != null)
             if (!MouseCheck.instance.enabled) return;
-
-        DataHandler.Mood = Mathf.Max(0, DataHandler.Mood - .2f + DataHandler.MoodBonus);
-        DataHandler.Nourishment = Mathf.Max(0, DataHandler.Nourishment - .2f + DataHandler.NourishmentBonus);
-        DataHandler.Social = Mathf.Max(0, DataHandler.Social - .2f + DataHandler.SocialBonus);
-        DataHandler.Fitness = Mathf.Max(0, DataHandler.Fitness - .2f + DataHandler.FitnessBonus);
+        Stat[] stats = { Stat.Mood, Stat.Nourishment, Stat.Social, Stat.Fitness };
+        foreach(Stat s in stats)
+        {
+            DataHandler.AddStat(s, DataHandler.GetBonus(s) - .2f);
+        }
 
         WeekNumber++;
         
@@ -153,5 +155,27 @@ public class GameManager : MonoBehaviour
     {
         Data.GetDataValue(stat).Choices[lvl].Amount--;
         OnItemChanged?.Invoke();
+    }
+
+    public bool IsDanger
+    {
+        get
+        {
+            bool isInDanger = false;
+            foreach (DataType dt in DataHandler.DataTypes)
+            {
+                if (dt.Meter < .35)
+                {
+                    isInDanger = true;
+                    break;
+                }
+            }
+            return isInDanger;
+        }
+    }
+
+    public bool StatInDanger(Stat stat)
+    {
+        return DataHandler.DataTypes.Find(x => x.stat == stat).Meter < .35f;
     }
 }

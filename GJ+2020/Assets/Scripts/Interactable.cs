@@ -32,7 +32,19 @@ public class Interactable : MonoBehaviour
         if(MouseCheck.instance != null)
             if (!MouseCheck.instance.enabled) return;
 
-        if(IsAvailable())
+        if (GameManager.instance.IsDanger)
+        {
+            if (GameManager.instance.StatInDanger(Type))
+            {
+                if(IsAvailable())
+                    DialogueManager.instance.SetChoices(Type);
+                else
+                    DialogueManager.instance.SetDialogue(TextIfUnavailable);
+            }
+            else
+                DialogueManager.instance.SetDialogue("I don't feel like doing this...");
+        }
+        else if (IsAvailable())
             DialogueManager.instance.SetChoices(Type);
         else
             DialogueManager.instance.SetDialogue(TextIfUnavailable);

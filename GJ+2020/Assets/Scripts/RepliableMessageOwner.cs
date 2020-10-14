@@ -45,7 +45,7 @@ public class RepliableMessageOwner : MessageOwner
 
             StatHandler.instance.SetStat(Stat.Social);
             float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].MeterFill;
-            StatHandler.instance.SetBar(DataHandler.Social + toFill);
+            StatHandler.instance.SetBar(DataHandler.GetPercent(Stat.Social) + toFill);
 
             UpdatePreviousText();
             DataHandler.LevelUpRelationship(CurrentChat.Name);
