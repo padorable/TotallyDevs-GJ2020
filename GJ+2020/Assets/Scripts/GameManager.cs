@@ -70,26 +70,36 @@ public class GameManager : MonoBehaviour
         {
             if (WeekNumber >= 12)
             {
+                int count = 0, unlocked = 0;
+                foreach(DataValues a in Data.Data)
+                {
+                    foreach(ChoicesValue c in a.Choices)
+                    {
+                        count++;
+                        if (c.IsUnlocked)
+                            unlocked++;
+                    }
+                }
                 int good = 0, normal = 0;
                 Stat[] stats = { Stat.Nourishment, Stat.Mood, Stat.Fitness, Stat.Social };
                 foreach (Stat s in stats)
                 {
                     int o = Mathf.FloorToInt(DataHandler.GetPercent(s) * 100);
-                    if (o > 60)
+                    if (o > 70)
                         good++;
-                    if (o > 40)
+                    if (o > 50)
                         normal++;
                 };
 
-                float p = PercentDone();
+                float percentDone = ((float)unlocked / (float)count) * 100f;
                 if (good == 4)
                 {
                     // Good Outcome
                     AudioManager.instance.PlayBG(5);
                     Entries.instance.ShowButton(3);
                 }
-                else if (normal >= 3)
-                {
+                else if (normal == 4 && percentDone > 60f)
+                {     
                     // Normal Outcome
                     AudioManager.instance.PlayBG(4);
                     Entries.instance.ShowButton(2);
@@ -126,6 +136,8 @@ public class GameManager : MonoBehaviour
             if (!MouseCheck.instance.enabled) return;
         Stat[] stats = { Stat.Mood, Stat.Nourishment, Stat.Social, Stat.Fitness };
 
+        WeekNumber++;
+
         if (WeekNumber < 12)
         {
             foreach (Stat s in stats)
@@ -140,9 +152,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        WeekNumber++;
-        
-        DataHandler.Money += 750 + (1500 * (Mathf.FloorToInt((float)WeekNumber / 4f)));
+        DataHandler.Money += 750;
+
+        if(WeekNumber% 4 == 0 && WeekNumber != 0)
+        {
+            DataHandler.Money += 1500;
+        }
+
         DialogueManager.instance.SetDialogue(". . .");
     }
 
@@ -225,13 +241,13 @@ public class GameManager : MonoBehaviour
             foreach(Stat a in s)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
-                    DataHandler.SetStat(a, 1);
+                    DataHandler.SetStat(a, .7f);
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                     DataHandler.SetStat(a, .5f);
                 else
                     DataHandler.SetStat(a, .35f);
             }
-            WeekNumber = 12;
+            WeekNumber = 11;
         }
     }
 

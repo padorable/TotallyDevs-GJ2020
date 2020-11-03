@@ -27,9 +27,13 @@ public class RepliableMessageOwner : MessageOwner
         }
         int index = Mathf.Min(currentPerson.Level, Messages.Count - 1);
         MessengerManager.instance.ToBeAdded = Messages[index];
-        int cost = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[currentPerson.Level].APCost;
+        int cost = 0;
+        if (currentPerson.Level < 3)
+            cost = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[Mathf.Min(2,currentPerson.Level)].APCost;
+        else
+            cost = 1;
 
-        if (currentPerson.IsOnline && currentPerson.Level <= 2)
+        if (currentPerson.IsOnline)
             MessengerManager.instance.ShowMessagesAndChat(PreviousChat, cost);
         else
             MessengerManager.instance.ShowMessagesAndHeartOnly(PreviousChat);

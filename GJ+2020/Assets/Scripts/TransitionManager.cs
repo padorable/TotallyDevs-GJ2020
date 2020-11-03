@@ -33,6 +33,24 @@ public class TransitionManager : MonoBehaviour
     private void Start()
     {
         GameManager.instance.NewWeek.AddListener(SetDate);
+
+        AfterTransition.AddListener(() =>
+        {
+            if (GameManager.instance.WeekNumber >= 12) return;
+
+            if (GameManager.instance.IsDanger)
+            {
+                Stat[] s = { Stat.Mood, Stat.Fitness, Stat.Nourishment, Stat.Social };
+                foreach(Stat a in s)
+                {
+                    if(DataHandler.GetPercent(a) * 100 < 30)
+                    {
+                        DialogueManager.instance.SetDialogue(GameManager.instance.Data.GetDataValue(a).DialogueToSay);
+                        break;
+                    }
+                }
+            }
+        });
     }
 
     public void SetDate()

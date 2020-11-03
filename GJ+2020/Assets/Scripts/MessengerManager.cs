@@ -27,6 +27,7 @@ public class MessengerManager : MonoBehaviour
     public Image ChatBoxPerson;
     public GameObject ChatBoxHeart;
     public Image OnlineImage;
+    public CanvasGroup Calling;
 
     public static MessengerManager instance;
     [HideInInspector] public UpdateMessages OnUpdateMessages;
@@ -50,15 +51,10 @@ public class MessengerManager : MonoBehaviour
             if(x == this.gameObject)
             {
                 RepliableMessageOwner[] messagers = PeopleContent.GetComponentsInChildren<RepliableMessageOwner>();
-                bool isOnline = false;
                 foreach (RepliableMessageOwner r in messagers)
                 {
                     r.CheckIfOnline();
-                    if (r.currentPerson.IsOnline) isOnline = true;
                 }
-
-                if (isOnline)
-                    AudioManager.instance.PlayFX(10);
             }
         });
     }
@@ -95,7 +91,7 @@ public class MessengerManager : MonoBehaviour
                 callback = new EventTrigger.TriggerEvent()
             };
 
-            float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[r.Level].MeterFill;
+            float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[Mathf.Min(2,r.Level)].MeterFill;
 
             entry.callback.AddListener((data) =>
             {
@@ -120,7 +116,10 @@ public class MessengerManager : MonoBehaviour
         SetMessageBoxes();
         ChatBoxHeart.SetActive(true);
         updateHearts(DataHandler.GetRelationshipLevel(chat.Name));
-        ChatBox.GetComponentInChildren<Text>().text = "Chat (Cost: " + cost + " AP)";
+        if(r.Level < 3)
+            ChatBox.GetComponentInChildren<Text>().text = "Chat (Cost: " + cost + " AP)";
+        else
+            ChatBox.GetComponentInChildren<Text>().text = "Call (Cost: 1AP)";
     }
 
     private void updateHearts(int amount)
@@ -133,7 +132,7 @@ public class MessengerManager : MonoBehaviour
 
         for (int i = 0; i < Mathf.Clamp(amount, 0, 3); i++)
         {
-            ChatBoxHeart.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
+            ChatBoxHeart.transform.GetChild(i).GetComponent<Image>().color = Color.red;
         }
     }
 
@@ -210,7 +209,7 @@ public class MessengerManager : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.value + 1.5f);
             AddMessage(c);
-
+            AudioManager.instance.PlayFX(10);
             Viewport.transform.parent.GetComponent<ScrollRect>().velocity = new Vector2(0, 200f);
         }
         PhoneManager.instance.InteractButtons(true);
@@ -233,10 +232,47 @@ public class MessengerManager : MonoBehaviour
             }
         }
 
-        NewMessages(ToBeAdded);
-        OnUpdateMessages.Invoke(ToBeAdded.CurrentChat);
+        Relationship r = DataHandler.Relationships.Find(x => x.Name == CurrentMessaging.Name);
+
+        if (r.Level < 3)
+        {
+            NewMessages(ToBeAdded);
+            OnUpdateMessages.Invoke(ToBeAdded.CurrentChat);
+            updateHearts(DataHandler.GetRelationshipLevel(CurrentMessaging.Name));
+        }
+        else
+        {
+            float toFill = GameManager.instance.Data.GetDataValue(Stat.Social).Choices[Mathf.Min(2, r.Level)].MeterFill;
+            GameManager.instance.DecreaseActionPoints(1);
+            StatHandler.instance.SetStat(Stat.Social);
+            StatHandler.instance.SetBar(DataHandler.GetPercent(Stat.Social) + toFill);
+            StartCoroutine(Call());
+        }
         Viewport.offsetMin = new Vector2(4, 30);
         ChatBox.SetActive(false);
-        updateHearts(DataHandler.GetRelationshipLevel(CurrentMessaging.Name));
+
+    }
+
+    IEnumerator Call()
+    {
+        Calling.GetComponentInChildren<Text>().text = "Your call with " + CurrentMessaging.Name + " lasted for\n\n" + Random.Range(30, 300) + " minutes!";
+        float d = 0, a = 1.5f, p = 3.0f;
+
+        while(d < a)
+        {
+            d = Mathf.Min(a, d + Time.deltaTime);
+            Calling.alpha = d / a;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(p);
+        d = 0;
+
+        while (d < a)
+        {
+            d = Mathf.Min(a, d + Time.deltaTime);
+            Calling.alpha = 1 - (d / a);
+            yield return null;
+        }
     }
 }

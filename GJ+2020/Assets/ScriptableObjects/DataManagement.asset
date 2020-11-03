@@ -16,6 +16,7 @@ MonoBehaviour:
   Data:
   - stat: 0
     InitialValue: 0.8
+    DialogueToSay: Ooooohh my golly, I feel so lonely. I wonder who's online.
     Choices:
     - IsUnlocked: 1
       APCost: 1
@@ -34,6 +35,7 @@ MonoBehaviour:
       Amount: 0
   - stat: 1
     InitialValue: 0.8
+    DialogueToSay: I'm bored. Maybe there's something new in Betflix to watch.
     Choices:
     - IsUnlocked: 0
       APCost: 1
@@ -52,6 +54,7 @@ MonoBehaviour:
       Amount: 0
   - stat: 2
     InitialValue: 0.8
+    DialogueToSay: I feel so sluggishhh, I should go work out.
     Choices:
     - IsUnlocked: 1
       APCost: 1
@@ -70,6 +73,8 @@ MonoBehaviour:
       Amount: 0
   - stat: 3
     InitialValue: 0.8
+    DialogueToSay: Oh maaaaan am I HUNGRY. I hope I have something to eat in the
+      fridge.
     Choices:
     - IsUnlocked: 0
       APCost: 1

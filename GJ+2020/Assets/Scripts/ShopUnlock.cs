@@ -49,7 +49,7 @@ public class ShopUnlock : MonoBehaviour
 
     public void ScrollToTop()
     {
-        transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        Content.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
     }
 }
 

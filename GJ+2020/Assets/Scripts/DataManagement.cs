@@ -19,6 +19,7 @@ public class DataValues
     public Stat stat;
     [Range(0,1)]
     public float InitialValue;
+    public string DialogueToSay;
     public List<ChoicesValue> Choices;
 }
 

@@ -33,9 +33,6 @@ MonoBehaviour:
     Message: let me ask david
     Length: 1
   - isMe: 1
-    Message: Boca Bola is still the best boi
-    Length: 1
-  - isMe: 1
     Message: david?
     Length: 1
   - isMe: 0

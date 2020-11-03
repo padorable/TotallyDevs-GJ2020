@@ -80,6 +80,6 @@ public class AudioManager : MonoBehaviour
 public struct AudioVolume
 {
     public AudioClip Clip;
-    [Range(0,1)]
+    [Range(0,2)]
     public float Volume;
 }

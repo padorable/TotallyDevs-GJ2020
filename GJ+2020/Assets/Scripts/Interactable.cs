@@ -32,7 +32,11 @@ public class Interactable : MonoBehaviour
         if(MouseCheck.instance != null)
             if (!MouseCheck.instance.enabled) return;
 
-        if (GameManager.instance.IsDanger)
+        if((GameManager.instance.ActionPoints == 0))
+        {
+            DialogueManager.instance.SetDialogue("I don't have the energy to do this, I should turn in...");
+        }
+        else if (GameManager.instance.IsDanger)
         {
             if (GameManager.instance.StatInDanger(Type))
             {
@@ -55,8 +59,6 @@ public class Interactable : MonoBehaviour
 
     private bool IsAvailable()
     {
-        if (GameManager.instance.ActionPoints == 0) return false;
-
         DataValues d = GameManager.instance.Data.GetDataValue(Type);
 
         bool available = false;

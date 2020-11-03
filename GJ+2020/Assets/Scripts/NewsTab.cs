@@ -12,7 +12,6 @@ public class NewsTab : MonoBehaviour
 
     public OpenNews OnOpenNews = new OpenNews();
     public Text Title;
-    public Text Date;
     public int NewsWeekReleasedOn;
 
     public void SetNewsTab(NewsScriptable news, int newsWeek)
@@ -20,7 +19,6 @@ public class NewsTab : MonoBehaviour
         CurrentNews = news;
         NewsWeekReleasedOn = newsWeek;
         Title.text = CurrentNews.NewsTitle;
-        Date.text = GameManager.instance.Month(NewsWeekReleasedOn, true) + ", Week " + (NewsWeekReleasedOn % 4 + 1);
     }
     public void Open()
     {
